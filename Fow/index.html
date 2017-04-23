@@ -73,32 +73,38 @@
   }
   
   .panel-body {
-    transform: scaleY(0);
-    transform-origin: 50% 0;
-    transition:transform 1s ease;
+    transition: height 0.25s ease;
     padding: 15px;
-    max-height: 120px;
+    height: 0;
     overflow-y: auto;
     border-top: 1px solid #337ab7;
   }
-
-  .panel-body.open{
-    transform: scaleY(1);
+  
+  .panel-body.open {
+    height: 120px;
   }
   
   .text-center {
     text-align: center;
   }
 </style>
+<div class="avatars"></div>
 <div style="width:200px;" class="false-panel">
   <div class="panel-header">
     <img class="img-circle thumbnail" src="http://i.imgur.com/lv5DVqD.jpg" />
-  <div class="text-center">Lenna Halo</div>
+    <div class="text-center">Lenna Halo</div>
   </div>
   <div class="panel-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat mauris. Nulla aliquet magna ligula, at auctor tellus cursus vitae. Mauris vel pellentesque odio. Vivamus euismod cursus vehicula. Donec lacus leo, pulvinar eget eros in, tempor sollicitudin diam. Mauris et maximus turpis. Fusce malesuada sed mauris id eleifend.
-
-Pellentesque in leo vulputate, dignissim mauris quis, malesuada neque. Nullam non nunc tincidunt, pharetra tellus nec, semper justo. Etiam tincidunt sem vitae dui vestibulum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eu interdum quam, in gravida nibh. Aliquam in tellus dapibus dui malesuada ultricies et at eros. Maecenas ac congue sapien. Quisque lorem tortor, vestibulum sed sapien at, sollicitudin imperdiet lectus. Cras accumsan sagittis eros lacinia hendrerit. Donec sit amet erat velit. Nunc ut sapien iaculis, feugiat diam eget, gravida libero. Fusce dictum nunc neque, at commodo nisl blandit rutrum. Praesent commodo id nisi sed dapibus. Duis suscipit urna justo, sit amet porttitor tellus consectetur nec.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat mauris. Nulla aliquet magna ligula, at auctor
+    tellus cursus vitae. Mauris vel pellentesque odio. Vivamus euismod cursus vehicula. Donec lacus leo, pulvinar eget eros
+    in, tempor sollicitudin diam. Mauris et maximus turpis. Fusce malesuada sed mauris id eleifend. Pellentesque in leo vulputate,
+    dignissim mauris quis, malesuada neque. Nullam non nunc tincidunt, pharetra tellus nec, semper justo. Etiam tincidunt
+    sem vitae dui vestibulum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eu interdum quam,
+    in gravida nibh. Aliquam in tellus dapibus dui malesuada ultricies et at eros. Maecenas ac congue sapien. Quisque lorem
+    tortor, vestibulum sed sapien at, sollicitudin imperdiet lectus. Cras accumsan sagittis eros lacinia hendrerit. Donec
+    sit amet erat velit. Nunc ut sapien iaculis, feugiat diam eget, gravida libero. Fusce dictum nunc neque, at commodo nisl
+    blandit rutrum. Praesent commodo id nisi sed dapibus. Duis suscipit urna justo, sit amet porttitor tellus consectetur
+    nec.
   </div>
 </div>
 
@@ -109,21 +115,22 @@ Pellentesque in leo vulputate, dignissim mauris quis, malesuada neque. Nullam no
     height = 270 - margin.top - margin.bottom;
 
   // Parse the date / time
-  var parseDate = d3.timeParse("%d-%b-%y");
+  var parseDate = d3.timeParse("%d/%m/%Y");
 
   // Set the ranges
-  var x = d3.scaleTime().range([0, width]);
-  var y = d3.scaleLinear().range([height, 0]);
+  var xRange = d3.scaleTime().range([0, width]);
+  var yRange = d3.scaleLinear().range([height, 0]);
+  var rayon = 3.5;
 
   // Define the axes
-  var xAxis = d3.axisBottom().scale(x).ticks(5);
+  var xAxis = d3.axisBottom().scale(xRange).ticks(5);
 
-  var yAxis = d3.axisLeft().scale(y).ticks(5);
+  var yAxis = d3.axisLeft().scale(yRange).ticks(5);
 
   // Define the line
   var valueline = d3.line()
-    .x(function (d) { return x(d.date); })
-    .y(function (d) { return y(d.close); });
+    .x(function (d) { return xRange(d.date); })
+    .y(function (d) { return yRange(d.close); });
 
   // Adds the svg canvas
   var svg = d3.select("body")
@@ -137,110 +144,63 @@ Pellentesque in leo vulputate, dignissim mauris quis, malesuada neque. Nullam no
   // Get the data
   var data = [
     {
-      "date": "1-May-12",
-      "close": 58.13
+      "partenaires": "Lenna Halo",
+      "date": "01/02/2017",
+      "close": 40,
+      "status": "closed"
     },
     {
-      "date": "30-Apr-12",
-      "close": 53.98
+      "partenaires": "Gamaliel Collins",
+      "date": "10/02/2017",
+      "close": 60,
+      "status": "progress"
     },
     {
-      "date": "27-Apr-12",
-      "close": 67
+      "partenaires": "Léonardo Zeit",
+      "date": "20/02/2017",
+      "close": 80,
+      "status": "progress"
     },
     {
-      "date": "26-Apr-12",
-      "close": 89.7
+      "partenaires": "Alys Rousseau",
+      "date": "15/03/2017",
+      "close": 80,
+      "status": "progress"
     },
     {
-      "date": "25-Apr-12",
-      "close": 99
+      "partenaires": "Victoire Owen",
+      "date": "14/03/2017",
+      "close": 80,
+      "status": "progress"
     },
     {
-      "date": "24-Apr-12",
-      "close": 130.28
+      "partenaires": "Alice Nightray",
+      "date": "30/03/2017",
+      "close": 80,
+      "status": "progress"
     },
     {
-      "date": "23-Apr-12",
-      "close": 166.7
+      "partenaires": "Luna Nightingale",
+      "date": "15/04/2017",
+      "close": 80,
+      "status": "progress"
     },
+  ];
+
+  var relations = [
     {
-      "date": "20-Apr-12",
-      "close": 234.98
-    },
-    {
-      "date": "19-Apr-12",
-      "close": 345.44
-    },
-    {
-      "date": "18-Apr-12",
-      "close": 443.34
-    },
-    {
-      "date": "17-Apr-12",
-      "close": 543.7
-    },
-    {
-      "date": "16-Apr-12",
-      "close": 580.13
-    },
-    {
-      "date": "13-Apr-12",
-      "close": 605.23
-    },
-    {
-      "date": "12-Apr-12",
-      "close": 622.77
-    },
-    {
-      "date": "11-Apr-12",
-      "close": 626.2
-    },
-    {
-      "date": "10-Apr-12",
-      "close": 628.44
-    },
-    {
-      "date": "9-Apr-12",
-      "close": 636.23
-    },
-    {
-      "date": "5-Apr-12",
-      "close": 633.68
-    },
-    {
-      "date": "4-Apr-12",
-      "close": 624.31
-    },
-    {
-      "date": "3-Apr-12",
-      "close": 629.32
-    },
-    {
-      "date": "2-Apr-12",
-      "close": 618.63
-    },
-    {
-      "date": "30-Mar-12",
-      "close": 599.55
-    },
-    {
-      "date": "29-Mar-12",
-      "close": 609.86
-    },
-    {
-      "date": "28-Mar-12",
-      "close": 617.62
-    },
-    {
-      "date": "27-Mar-12",
-      "close": 614.48
-    },
-    {
-      "date": "26-Mar-12",
-      "close": 606.98
+      "name": "Lenna Halo",
+      "avatar": "http://i.imgur.com/lv5DVqD.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat mauris. Nulla aliquet magna ligula, at auctor"
+      + "tellus cursus vitae. Mauris vel pellentesque odio. Vivamus euismod cursus vehicula. Donec lacus leo, pulvinar eget eros"
+      + "in, tempor sollicitudin diam. Mauris et maximus turpis. Fusce malesuada sed mauris id eleifend. Pellentesque in leo vulputate,"
+      + "dignissim mauris quis, malesuada neque. Nullam non nunc tincidunt, pharetra tellus nec, semper justo. Etiam tincidunt"
+      + "sem vitae dui vestibulum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eu interdum quam,"
+      + "in gravida nibh. Aliquam in tellus dapibus dui malesuada ultricies et at eros. Maecenas ac congue sapien. Quisque lorem"
     }
   ];
+
+
   data.forEach(function (d) {
     d.date = parseDate(d.date);
     d.close = +d.close;
@@ -248,16 +208,36 @@ Pellentesque in leo vulputate, dignissim mauris quis, malesuada neque. Nullam no
 
   // Scale the range of the data
   var maxY = d3.max(data, function (d) { return d.close; });
-  x.domain(d3.extent(data, function (d) { return d.date; }));
-  y.domain([0, maxY]);
+  xRange.domain(d3.extent(data, function (d) { return d.date; }));
+  yRange.domain([0, maxY]);
 
   // Add the scatterplot
   svg.selectAll("dot")
     .data(data)
     .enter().append("circle")
-    .attr("r", 3.5)
-    .attr("cx", function (d) { return x(d.date); })
-    .attr("cy", function (d) { return y(maxY / 2); });
+    .attr("r", rayon)
+    .attr("cx", function (d) { return xRange(d.date); })
+    .attr("cy", function (d) { return yRange(maxY / 2); })
+    .attr("fill", "transparent")
+    .attr("stroke", function (d) {
+      if (d.status == "closed") return "green";
+      if (d.status == "progress") return "orange";
+    });
+
+  var panels = d3.select("div.avatars")
+    .selectAll("div")
+    .data(relations)
+    .enter().append("div")
+    .attr("class", "false-panel")
+    .attr("style", "width: 200px;");
+
+  panels.select("div")
+  .enter().append("div")
+    .attr("class", "panel-header")
+    .append("img")
+    .attr("class", "img-circle thumbnail")
+    .attr("src", function(d) {return d.avatar;});
+
 
   // Add the X Axis
   svg.append("g")
