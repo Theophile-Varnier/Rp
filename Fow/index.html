@@ -2,7 +2,10 @@
 <meta charset="utf-8">
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<style rel="stylesheet">
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min.css"></link>
+<style>
   path {
     stroke: steelblue;
     stroke-width: 2;
@@ -62,214 +65,64 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  div.avatars{
+    padding:15px;
+    background-color:black;
+  }
   
   .false-panel {
+    color:white;
+    display:inline-block;
+    width: 20%;
     margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid #337ab7;
-    border-radius: 4px;
+    border: none;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
   }
-  
-  .panel-body {
-    transition: height 0.25s ease;
-    padding: 15px;
-    height: 0;
-    overflow-y: auto;
-    border-top: 1px solid #337ab7;
+
+  .false-panel.close{
+    opacity: 0.5;
   }
   
-  .panel-body.open {
+  .panel-body {
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+    transform-origin: 50% 0;
+    padding: 15px;
     height: 120px;
+    overflow-y: auto;
+    border: 1px solid #337ab7;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .panel-header{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  .false-panel.open > div.panel-body {
+    transform: scaleY(1);
+    background-color:white;
+    color:black;
+  }
+
+  .false-panel.open > div.panel-header{
+    border: 1px solid #337ab7;
+    background-color:white;
+    color:black;
   }
   
   .text-center {
     text-align: center;
   }
 </style>
+<body>
 <div class="avatars"></div>
 
-<script>
-  // Set the dimensions of the canvas / graph
-  var margin = { top: 30, right: 20, bottom: 30, left: 50 },
-    width = 600 - margin.left - margin.right,
-    height = 270 - margin.top - margin.bottom;
-
-  // Parse the date / time
-  var parseDate = d3.timeParse("%d/%m/%Y");
-
-  // Set the ranges
-  var xRange = d3.scaleTime().range([0, width]);
-  var yRange = d3.scaleLinear().range([height, 0]);
-  var rayon = 3.5;
-
-  // Define the axes
-  var xAxis = d3.axisBottom().scale(xRange).ticks(5);
-
-  var yAxis = d3.axisLeft().scale(yRange).ticks(5);
-
-  // Define the line
-  var valueline = d3.line()
-    .x(function (d) { return xRange(d.date); })
-    .y(function (d) { return yRange(d.close); });
-
-  // Adds the svg canvas
-  var svg = d3.select("body")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
-   var g = svg.append("g")
-    .attr("transform",
-    "translate(" + margin.left + "," + margin.top + ")");
-
-  // Get the data
-  var data = [
-    {
-      "partenaires": "Lenna Halo",
-      "date": "01/02/2017",
-      "close": 40,
-      "status": "closed"
-    },
-    {
-      "partenaires": "Gamaliel Collins",
-      "date": "10/02/2017",
-      "close": 60,
-      "status": "progress"
-    },
-    {
-      "partenaires": "Léonardo Zeit",
-      "date": "20/02/2017",
-      "close": 80,
-      "status": "progress"
-    },
-    {
-      "partenaires": "Alys Rousseau",
-      "date": "15/03/2017",
-      "close": 80,
-      "status": "progress"
-    },
-    {
-      "partenaires": "Victoire Owen",
-      "date": "14/03/2017",
-      "close": 80,
-      "status": "progress"
-    },
-    {
-      "partenaires": "Alice Nightray",
-      "date": "30/03/2017",
-      "close": 80,
-      "status": "progress"
-    },
-    {
-      "partenaires": "Luna Nightingale",
-      "date": "15/04/2017",
-      "close": 80,
-      "status": "progress"
-    },
-  ];
-
-  var relations = [
-    {
-      "name": "Lenna Halo",
-      "avatar": "http://i.imgur.com/lv5DVqD.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat mauris. Nulla aliquet magna ligula, at auctor"
-      + "tellus cursus vitae. Mauris vel pellentesque odio. Vivamus euismod cursus vehicula. Donec lacus leo, pulvinar eget eros"
-      + "in, tempor sollicitudin diam. Mauris et maximus turpis. Fusce malesuada sed mauris id eleifend. Pellentesque in leo vulputate,"
-      + "dignissim mauris quis, malesuada neque. Nullam non nunc tincidunt, pharetra tellus nec, semper justo. Etiam tincidunt"
-      + "sem vitae dui vestibulum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eu interdum quam,"
-      + "in gravida nibh. Aliquam in tellus dapibus dui malesuada ultricies et at eros. Maecenas ac congue sapien. Quisque lorem"
-    }
-  ];
-
-
-  data.forEach(function (d, i) {
-    d.date = parseDate(d.date);
-    d.close = +d.close;
-	d.id = i;
-  });
-
-  // Scale the range of the data
-  var maxY = d3.max(data, function (d) { return d.close; });
-  xRange.domain(d3.extent(data, function (d) { return d.date; }));
-  yRange.domain([0, maxY]);
-
-  // Add the scatterplot
-  g.selectAll("dot")
-    .data(data)
-    .enter().append("circle")
-    .attr("r", rayon)
-    .attr("cx", function (d) { return xRange(d.date); })
-    .attr("cy", function (d) { return yRange(maxY / 2); })
-    .attr("fill", "transparent")
-    .attr("data-personne", function(d){return d.partenaires})
-	.attr("data-id", function(d, i) {return i;})
-    .attr("stroke", function (d) {
-      if (d.status == "closed") return "green";
-      if (d.status == "progress") return "orange";
-    });
-
-  var panels = d3.select("div.avatars")
-    .selectAll("div")
-    .data(relations)
-    .enter().append("div")
-    .attr("class", "false-panel")
-    .attr("style", "width: 200px;");
-
-  panels.append("div")
-    .attr("class", "panel-header")
-    .append("img")
-    .attr("class", "img-circle thumbnail")
-    .attr("data-personne", function (d) { return d.name; })
-    .attr("src", function (d) { return d.avatar; })
-    .on("click", function (e, i, n) { openPanel(e, i, n); });
-
-  panels.select("div.panel-header")
-    .append("div")
-    .attr("class", "text-center")
-    .text(function (d) { return d.name; });
-
-  panels.append("div")
-    .attr("class", "panel-body")
-    .text(function (d) { return d.description; });
-
-  // Add the X Axis
-  g.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-  var openPanel = function (e, i, node) {
-    var panel = d3.select(node[0].parentNode.parentNode);
-    var dnode = panel.select("div.panel-body");
-    dnode.classed("open", !dnode.classed("open"));
-    if (dnode.classed("open")) {
-      var linked = d3.select("circle[data-personne*='" + e.name + "']")
-	  var rps = data.filter(function(elem) {
-	  return elem.partenaires.indexOf(e.name) != -1;
-	  });
-	  
-      panel.selectAll("dot")
-      .data(rps)
-      .enter()
-      .append("svg")
-	  .attr("style", "position:absolute;")
-      .append("line")
-      .attr("style", "stroke:black;stroke-width:2;")
-      .attr("x1", panel.node().getBoundingClientRect().x + panel.node().getBoundingClientRect().width / 2)
-      .attr("x2", function(d) {
-	  var circle = d3.select("circle[data-id='" + d.id + "']");
-	  return circle.node().getBoundingClientRect().x;
-        })
-      .attr("y1", 0)
-      .attr("y2", function(d){
-	  var circle = d3.select("circle[data-id='" + d.id + "']");
-        return circle.node().getBoundingClientRect().y;
-      });
-    } else{
-		panel.selectAll("svg")
-		.remove();
-	}
-  };
-
-</script>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="graph.js"></script>
+<script type="text/javascript" src="tooltip.js"></script>
+</body>
