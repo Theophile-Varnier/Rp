@@ -118,8 +118,8 @@
   var svg = d3.select("body")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
+    .attr("height", height + margin.top + margin.bottom);
+   var g = svg.append("g")
     .attr("transform",
     "translate(" + margin.left + "," + margin.top + ")");
 
@@ -194,7 +194,7 @@
   yRange.domain([0, maxY]);
 
   // Add the scatterplot
-  svg.selectAll("dot")
+  g.selectAll("dot")
     .data(data)
     .enter().append("circle")
     .attr("r", rayon)
@@ -232,7 +232,7 @@
     .text(function (d) { return d.description; });
 
   // Add the X Axis
-  svg.append("g")
+  g.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
@@ -243,21 +243,30 @@
     dnode.classed("open", !dnode.classed("open"));
     if (dnode.classed("open")) {
       var linked = d3.select("circle[data-personne*='" + e.name + "']")
+	  var rps = data.filter(function(elem) {
+	  return elem.partenaires.indexOf(e.name) != -1;
+	  });
+	  
       panel.selectAll("dot")
-      .data(linked)
+      .data(rps)
       .enter()
-      .append("svg");
-/*      .append("line")
+      .append("svg")
+	  .attr("style", "position:absolute;")
+      .append("line")
       .attr("style", "stroke:black;stroke-width:2;")
       .attr("x1", 0)
-      .attr("x2", function(d) { 
-        return xRange(d.datum().date)
+      .attr("x2", function(d) {
+	  var point = d3.select(
+        return xRange(d.date) + svg.node().getBBox().x;
         })
       .attr("y1", 0)
       .attr("y2", function(d){
         return yRange(maxY/2)
-      });*/
-    }
+      });
+    } else{
+		panel.selectAll("svg")
+		.remove();
+	}
   };
 
 </script>
