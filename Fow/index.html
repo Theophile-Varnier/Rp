@@ -256,7 +256,6 @@
       .attr("style", "stroke:black;stroke-width:2;")
       .attr("x1", 0)
       .attr("x2", function(d) {
-	  var point = d3.select(
         return xRange(d.date) + svg.node().getBBox().x;
         })
       .attr("y1", 0)
