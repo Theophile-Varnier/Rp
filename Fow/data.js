@@ -1,0 +1,68 @@
+// Get the data
+  var data = [
+    {
+      "partenaires": "Lenna Halo",
+      "date": "01/02/2017",
+      "close": 40,
+      "status": "closed"
+    },
+    {
+      "partenaires": "Gamaliel Collins",
+      "date": "10/02/2017",
+      "close": 60,
+      "status": "progress"
+    },
+    {
+      "partenaires": "Léonardo Zeit",
+      "date": "20/02/2017",
+      "close": 80,
+      "status": "progress"
+    },
+    {
+      "partenaires": "Alys Rousseau",
+      "date": "15/03/2017",
+      "close": 80,
+      "status": "progress"
+    },
+    {
+      "partenaires": "Victoire Owen",
+      "date": "14/03/2017",
+      "close": 80,
+      "status": "progress"
+    },
+    {
+      "partenaires": "Alice Nightray",
+      "date": "30/03/2017",
+      "close": 80,
+      "status": "progress"
+    },
+    {
+      "partenaires": "Luna Nightingale",
+      "date": "15/04/2017",
+      "close": 80,
+      "status": "progress"
+    },
+  ];
+
+  var relations = [
+    {
+      "name": "Lenna Halo",
+      "avatar": "http://i.imgur.com/lv5DVqD.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat mauris. Nulla aliquet magna ligula, at auctor"
+      + "tellus cursus vitae. Mauris vel pellentesque odio. Vivamus euismod cursus vehicula. Donec lacus leo, pulvinar eget eros"
+      + "in, tempor sollicitudin diam. Mauris et maximus turpis. Fusce malesuada sed mauris id eleifend. Pellentesque in leo vulputate,"
+      + "dignissim mauris quis, malesuada neque. Nullam non nunc tincidunt, pharetra tellus nec, semper justo. Etiam tincidunt"
+      + "sem vitae dui vestibulum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eu interdum quam,"
+      + "in gravida nibh. Aliquam in tellus dapibus dui malesuada ultricies et at eros. Maecenas ac congue sapien. Quisque lorem"
+    },
+    {
+      "name": "Léonardo Zeit",
+      "avatar": "http://i.imgur.com/JXIUwro.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat mauris. Nulla aliquet magna ligula, at auctor"
+      + "tellus cursus vitae. Mauris vel pellentesque odio. Vivamus euismod cursus vehicula. Donec lacus leo, pulvinar eget eros"
+      + "in, tempor sollicitudin diam. Mauris et maximus turpis. Fusce malesuada sed mauris id eleifend. Pellentesque in leo vulputate,"
+      + "dignissim mauris quis, malesuada neque. Nullam non nunc tincidunt, pharetra tellus nec, semper justo. Etiam tincidunt"
+      + "sem vitae dui vestibulum tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eu interdum quam,"
+      + "in gravida nibh. Aliquam in tellus dapibus dui malesuada ultricies et at eros. Maecenas ac congue sapien. Quisque lorem"
+    }
+  ];
