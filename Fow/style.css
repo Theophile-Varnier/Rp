@@ -1,0 +1,156 @@
+  path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+  }
+  
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  
+  .thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+  }
+  
+  img.thumbnail,
+  .thumbnail a>img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  a.thumbnail:hover,
+  a.thumbnail:focus,
+  a.thumbnail.active {
+    border-color: #337ab7;
+  }
+  
+  .thumbnail .caption {
+    padding: 9px;
+    color: #333;
+  }
+  
+  img.thumbnail,
+  .thumbnail a>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .img-circle {
+    border-radius: 50% !important;
+  }
+  
+  img.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  div.avatars{
+    padding:15px;
+    background-color:black;
+  }
+  
+  .false-panel {
+    color:white;
+    display:inline-block;
+    width: 20%;
+    margin-bottom: 20px;
+    border: none;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+
+  .false-panel.close{
+    opacity: 0.5;
+  }
+  
+  .panel-body {
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+    transform-origin: 50% 0;
+    padding: 15px;
+    height: 120px;
+    overflow-y: auto;
+    border: 1px solid #337ab7;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .panel-header{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  .false-panel.open > div.panel-body {
+    transform: scaleY(1);
+    background-color:white;
+    color:black;
+  }
+
+  .false-panel.open > div.panel-header{
+    border: 1px solid #337ab7;
+    background-color:white;
+    color:black;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+
+  .graph{
+      width:600px;
+      height:270px;
+  }
+
+  .rp{
+      width:15px;
+      height:15px;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: absolute;
+  }
+  .rp.progress{
+      background-color: orange;
+  }
+
+  .rp.finished{
+      background-color: green;
+  }
+
+  .tooltip{
+      pointer-events: none;
+      z-index: 1000;
+      width:150px;
+      opacity: 0;
+      top:8px;
+      left:8px;
+      position: absolute;
+  }
+
+  .titreun{
+      color:#EEEEEE;
+  }
+
+  .rp:hover .tooltip{
+      opacity: 1;
+  }
+
+  .tooltip .titre{
+      border-radius: 4px 4px 0 0;
+      border: solid 1px black;
+      background-color:white;
+  }
