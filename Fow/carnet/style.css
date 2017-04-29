@@ -131,14 +131,29 @@
       background-color: green;
   }
 
+  .rp a{
+    width:15px;
+    height: 15px;
+  }
+
   .tooltip{
-      pointer-events: none;
       z-index: 1000;
-      width:150px;
-      opacity: 0;
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+    transform-origin: 50% 0;
       top:8px;
       left:8px;
       position: absolute;
+  }
+
+  .tooltip .titreun{
+    width:auto;
+    height: auto;
+    margin-right:39px;
+  }
+
+  .tooltip .infosgen{
+    width: 300px;
   }
 
   .titreun{
@@ -146,11 +161,5 @@
   }
 
   .rp:hover .tooltip{
-      opacity: 1;
-  }
-
-  .tooltip .titre{
-      border-radius: 4px 4px 0 0;
-      border: solid 1px black;
-      background-color:white;
+      transform: scaleY(1);
   }
