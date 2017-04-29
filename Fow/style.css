@@ -132,12 +132,13 @@
   }
 
   .tooltip{
-      pointer-events: none;
       z-index: 1000;
-      width:150px;
-      opacity: 0;
+      /*width:150px;*/
+      transform: scale(0);
+      transition: transform 0.25s ease;
+    transform-origin: 0 0;
       top:8px;
-      left:8px;
+      left:8px; 
       position: absolute;
   }
 
@@ -146,11 +147,9 @@
   }
 
   .rp:hover .tooltip{
-      opacity: 1;
+      transform: scale(1);
   }
 
-  .tooltip .titre{
-      border-radius: 4px 4px 0 0;
-      border: solid 1px black;
-      background-color:white;
+  .tooltip .titreun{
+    width:auto;
   }
