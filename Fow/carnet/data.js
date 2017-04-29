@@ -3,6 +3,8 @@
     {
       "partenaires": "Lenna Halo",
       "date": "01/02/2017",
+      "lieu": "Parc Jouvence",
+      "url": "http://fateofwishes.forumactif.org/t2844-parc-jouvence-c-est-pas-la-gare-ca-si-termine",
       "close": 40,
       "titre" : "C'est pas la gare ça, si ?",
       "status": "closed",
@@ -16,6 +18,8 @@
     {
       "partenaires": "Gamaliel Collins",
       "date": "10/02/2017",
+      "lieu": "Cafétéria de la fac",
+      "url": "http://fateofwishes.forumactif.org/t2846-cafeteria-de-la-fac-c-est-possible-de-dejeuner-en-paix",
       "close": 60,
       "titre" : "C'est possible de déjeuner en paix ?",
       "status": "progress",
@@ -29,6 +33,8 @@
     {
       "partenaires": "Léonardo Zeit",
       "date": "20/02/2017",
+      "lieu": "Chez Edward",
+      "url": "http://fateofwishes.forumactif.org/t2851-maison-de-edward-intrusion",
       "close": 80,
       "titre" : "Intrusion",
       "status": "progress",
@@ -42,6 +48,7 @@
     {
       "partenaires": "Alys Rousseau",
       "date": "15/03/2017",
+      "lieu": "Appartement d'Alys",
       "close": 80,
       "titre" : "Plan foireux ou heureuse rencontre ?",
       "status": "progress"
@@ -49,6 +56,7 @@
     {
       "partenaires": "Victoire Owen",
       "date": "14/03/2017",
+      "lieu": "Bar 'Le Caporal'",
       "close": 80,
       "titre" : "Vous pensez rester longtemps ?",
       "status": "progress"
@@ -56,6 +64,7 @@
     {
       "partenaires": "Alice Nightray",
       "date": "30/03/2017",
+      "lieu": "Bâtiment Nightray Production",
       "close": 80,
       "titre" : "Le début des ennui ?",
       "status": "progress"
