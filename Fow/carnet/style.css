@@ -112,19 +112,26 @@
   }
 
   .graph{
-      width:550px;
       position: absolute;
   }
 
   .rp{
-      width:15px;
-      height:15px;
+      width:16px;
+      height:16px;
       border-radius: 50%;
       border: 2px solid white;
       position: absolute;
   }
   .rp.progress{
       background-color: orange;
+  }
+
+  .back{
+    background-color: #82c761;
+    padding:15px;
+    border-radius: 30px;
+    border: 1px solid black;
+    width:650px;
   }
 
   .rp.finished{
@@ -156,7 +163,11 @@
   }
 
   .rp:hover .tooltip{
-      transform: scale(1);
+      transform: scaleY(1);
+  }
+
+  circle:hover .tooltip{
+    transform: scaleY(1);
   }
 
   .tooltip .titreun{
@@ -183,5 +194,5 @@
     height: 100%;
   }
   .stripline.clair{
-    background-color: rgba(256, 256, 256, .5);
+    background-color: rgba(256, 256, 256, .75);
   }

@@ -2,7 +2,7 @@ $(function () {
     // Set the dimensions of the canvas / graph
   var margin = { top: 0, right: 0, bottom: 30, left: 50 },
     width = 600 - margin.left - margin.right,
-    height = 270 - margin.top - margin.bottom;  
+    height = 150 - margin.top - margin.bottom;  
     
     
   // Parse the date / time
@@ -46,7 +46,7 @@ var xdates = d3.extent(data, function (d) { return d.date; });
   for(var i = 0; i < monthes.length; i++){
       var month = monthes[i];
       var nextMonth = d3.timeMonth.offset(month);
-      var monthWidth = xRange(nextMonth) - xRange(month);
+      var monthWidth = Math.min(xRange(nextMonth), xRange(xdates[1])) - xRange(month);
       var background = i % 2 == 0 ? "clair" : "fonce";
       $(".graph").append($("<div>", {"class": "stripline " + background, "style": "left:" + xRange(month) + "px;width:"+ monthWidth + "px;"}));
   }
@@ -55,10 +55,14 @@ var xdates = d3.extent(data, function (d) { return d.date; });
   var xAxis = d3.axisBottom().scale(xRange).ticks(d3.timeMonth.every(1)).tickFormat(locale.format("%B %Y"));
 
     data.forEach(function (e, i) {
-        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + xRange(e.date) + "px;top:" + height/2 + "px;" });
+      var participants ="";
+      for(var j = 0; j < e.partenaires.length; j++){
+        participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
+      }
+        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + (xRange(e.date)-10) + "px;top:" + (height/2 -10) + "px;" });
         var tooltip = $("<div>", {"class" : "tooltip"});
         var tooltipTitle = $("<a>", {"href": e.url}).append($("<span>", {"class": "titreun"}).text(e.titre));
-        var tooltipDescription = $("<div>", {"class": "infosgen"}).text(function() { return e.lieu + " - " + e.partenaires;});
+        var tooltipDescription = $("<div>", {"class": "infosgen"}).html(function() { return e.lieu + " - " + participants;});
         var rpDescription = $("<div>", {"class": "sepafiche"}).text(function(){
             return e.description;
         });
@@ -66,7 +70,7 @@ var xdates = d3.extent(data, function (d) { return d.date; });
         tooltip.append(tooltipTitle);
         tooltip.append(tooltipDescription);
         rp.append(tooltip);
-        $(".graph").attr("style", "margin-left:" + margin.left + "px;height:" + height + "px;").append(rp);
+        $(".graph").attr("style", "margin-left:" + margin.left + "px;height:" + height + "px;" + "width:" + width + "px;").append(rp);
     });
 
     var legend = $("<div>", {"class": "legend"});
