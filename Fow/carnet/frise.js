@@ -1,10 +1,63 @@
 $(function () {
+    // Set the dimensions of the canvas / graph
+  var margin = { top: 0, right: 0, bottom: 30, left: 50 },
+    width = 600 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;  
+    
+    
+  // Parse the date / time
+  var parseDate = d3.timeParse("%d/%m/%Y");
+
+    data.forEach(function (d, i) {
+    d.date = parseDate(d.date);
+    d.close = +d.close;
+	d.id = i;
+  });
+
+  var locale = d3.timeFormatLocale({
+  "decimal": ".",
+  "thousands": ",",
+  "grouping": [3],
+  "currency": ["$", ""],
+  "dateTime": "%a %b %e %X %Y",
+  "date": "%m/%d/%Y",
+  "time": "%H:%M:%S",
+  "periods": ["AM", "PM"],
+  "days": ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+  "shortDays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+  "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+  "shortMonths": ["Jan", "Fev", "Mar", "Avr", "Mai", "Jui", "Juil", "Aou", "Sep", "Oct", "Nov", "Dec"]
+});
+
+  // Set the ranges
+  var xRange = d3.scaleTime().range([0, width]);
+  var yRange = d3.scaleLinear().range([height, 0]);
+
+    // Scale the range of the data
+var xdates = d3.extent(data, function (d) { return d.date; });
+  var maxY = d3.max(data, function (d) { return d.close; });
+  xRange.domain(xdates);
+  yRange.domain([0, maxY]);
+
+  var monthes = d3.timeMonth.range(xdates[0], xdates[1], 1);
+
+  var lastX = 0;
+
+  for(var i = 0; i < monthes.length; i++){
+      var month = monthes[i];
+      var nextMonth = d3.timeMonth.offset(month);
+      var monthWidth = xRange(nextMonth) - xRange(month);
+      var background = i % 2 == 0 ? "clair" : "fonce";
+      $(".graph").append($("<div>", {"class": "stripline " + background, "style": "left:" + xRange(month) + "px;width:"+ monthWidth + "px;"}));
+  }
+
+  // Define the axes
+  var xAxis = d3.axisBottom().scale(xRange).ticks(d3.timeMonth.every(1)).tickFormat(locale.format("%B %Y"));
 
     data.forEach(function (e, i) {
-        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + 20*i + "px" });
-        var link = $("<a>", {"href": e.url});
+        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + xRange(e.date) + "px;top:" + height/2 + "px;" });
         var tooltip = $("<div>", {"class" : "tooltip"});
-        var tooltipTitle = $("<span>", {"class": "titreun"}).text(e.titre);
+        var tooltipTitle = $("<a>", {"href": e.url}).append($("<span>", {"class": "titreun"}).text(e.titre));
         var tooltipDescription = $("<div>", {"class": "infosgen"}).text(function() { return e.lieu + " - " + e.partenaires;});
         var rpDescription = $("<div>", {"class": "sepafiche"}).text(function(){
             return e.description;
@@ -12,9 +65,62 @@ $(function () {
         tooltipDescription.append(rpDescription);
         tooltip.append(tooltipTitle);
         tooltip.append(tooltipDescription);
-        rp.append(link);
         rp.append(tooltip);
-        $(".graph").append(rp);
+        $(".graph").attr("style", "margin-left:" + margin.left + "px;height:" + height + "px;").append(rp);
     });
+
+    var legend = $("<div>", {"class": "legend"});
+    legend.append(
+        $("<table>")
+        .append($("<tr>")
+        .append($("<td>").append($("<div>", {"class": "rp finished"})))
+        .append($("<td>").text("Rp terminés"))
+        )
+        .append($("<tr>")
+        .append($("<td>").append($("<div>", {"class": "rp progress"})))
+        .append($("<td>").text("Rp en cours"))
+        ));
+
+  // Adds the svg canvas
+  var svg = d3.select(".axe")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom);
+   var g = svg.append("g")
+    .attr("transform",
+    "translate(" + margin.left + "," + margin.top + ")"); 
+
+  var panels = d3.select("div.avatars")
+    .selectAll("div")
+    .data(relations)
+    .enter()
+    .append("div")
+    .attr("class", "false-panel")
+    .attr("style", "width: 200px;");
+
+  panels.append("div")
+    .attr("class", "panel-header")
+    .append("img")
+    .attr("class", "img-circle thumbnail")
+    .attr("style", "width:150px;height:150px;")
+    .attr("src", function (d) { return d.avatar; });
+
+  panels.select("div.panel-header")
+    .append("div")
+    .attr("class", "text-center")
+    .text(function (d) { return d.name; });
+
+  panels.append("div")
+    .attr("class", "panel-body")
+    .text(function (d) { return d.description; });
+
+  // Add the X Axis
+  g.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+    
+    $(".axe").append(legend);
 
 });

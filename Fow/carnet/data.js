@@ -49,6 +49,7 @@
       "partenaires": "Alys Rousseau",
       "date": "15/03/2017",
       "lieu": "Appartement d'Alys",
+      "url": "http://fateofwishes.forumactif.org/t2978-appartement-d-alys-plan-foireux-ou-heureuse-rencontre",
       "close": 80,
       "titre" : "Plan foireux ou heureuse rencontre ?",
       "status": "progress"
@@ -56,7 +57,8 @@
     {
       "partenaires": "Victoire Owen",
       "date": "14/03/2017",
-      "lieu": "Bar 'Le Caporal'",
+      "lieu": "Bar \"Le Caporal\"",
+      "url": "http://fateofwishes.forumactif.org/t2901-bar-le-caporal-vous-pensez-rester-longtemps",
       "close": 80,
       "titre" : "Vous pensez rester longtemps ?",
       "status": "progress"
@@ -65,6 +67,7 @@
       "partenaires": "Alice Nightray",
       "date": "30/03/2017",
       "lieu": "Bâtiment Nightray Production",
+      "url": "http://fateofwishes.forumactif.org/t2985-batiment-nightray-production-le-debut-des-ennuis",
       "close": 80,
       "titre" : "Le début des ennui ?",
       "status": "progress"
@@ -72,6 +75,8 @@
     {
       "partenaires": "Luna Nightingale",
       "date": "15/04/2017",
+      "lieu": "Boîte de nuit \"Le Hungry Jackall\"",
+      "url": "http://fateofwishes.forumactif.org/t3042-boite-de-nuit-hungry-jackal-non-mais-t-as-vu-c-que-t-ecoutes",
       "close": 80,
       "titre" : "Nan mais t'as vu c'que t'écoutes ?",
       "status": "progress"
