@@ -94,30 +94,6 @@ var xdates = d3.extent(data, function (d) { return d.date; });
     .attr("transform",
     "translate(" + margin.left + "," + margin.top + ")"); 
 
-  var panels = d3.select("div.avatars")
-    .selectAll("div")
-    .data(relations)
-    .enter()
-    .append("div")
-    .attr("class", "false-panel")
-    .attr("style", "width: 200px;");
-
-  panels.append("div")
-    .attr("class", "panel-header")
-    .append("img")
-    .attr("class", "img-circle thumbnail")
-    .attr("style", "width:150px;height:150px;")
-    .attr("src", function (d) { return d.avatar; });
-
-  panels.select("div.panel-header")
-    .append("div")
-    .attr("class", "text-center")
-    .text(function (d) { return d.name; });
-
-  panels.append("div")
-    .attr("class", "panel-body")
-    .text(function (d) { return d.description; });
-
   // Add the X Axis
   g.append("g")
     .attr("class", "x axis")

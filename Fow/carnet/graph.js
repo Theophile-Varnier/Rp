@@ -61,15 +61,23 @@
       return createTooltip(d);
     });
 
-  var panels = d3.select("div.avatars")
+  var panels = d3.select("div.wrapper")
     .selectAll("div")
     .data(relations)
     .enter()
     .append("div")
     .attr("class", "false-panel")
-    .attr("style", "width: 200px;");
+  .append("label")
+  .attr("for", function(e){return e.name;});
 
-  panels.append("div")
+  panels
+  .append("input")
+  .attr("type", "radio")
+  .attr("name", "relation")
+  .attr("id", function(e) {return e.name;});
+
+  panels
+  .append("div")
     .attr("class", "panel-header")
     .append("img")
     .attr("class", "img-circle thumbnail")
@@ -81,8 +89,10 @@
     .attr("class", "text-center")
     .text(function (d) { return d.name; });
 
-  panels.append("div")
+    panels.append("div")
     .attr("class", "panel-body")
+    .append("div")
+    .attr("class", "panel-body-wrapper")
     .text(function (d) { return d.description; });
 
   // Add the X Axis

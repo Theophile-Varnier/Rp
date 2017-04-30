@@ -37,11 +37,6 @@
     border-color: #337ab7;
   }
   
-  .thumbnail .caption {
-    padding: 9px;
-    color: #333;
-  }
-  
   img.thumbnail,
   .thumbnail a>img {
     display: block;
@@ -57,54 +52,62 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  div.avatars{
-    padding:15px;
-    background-color:black;
-  }
   
   .false-panel {
-    color:white;
-    display:inline-block;
-    width: 20%;
+    width: 200px;
+    color:black;
+    display: inline-block;
     margin-bottom: 20px;
     border: none;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
   }
 
-  .false-panel.close{
-    opacity: 0.5;
-  }
+  .avatars label > input{ 
+  visibility: hidden; 
+  position: absolute;
+}
   
   .panel-body {
+    border:none;
     transform: scaleY(0);
     transition: transform 0.25s ease;
     transform-origin: 50% 0;
+    color: black;
+    padding: 10px;
+    opacity: 0.5;
+    text-align: justify;
+  }
+
+  .panel-body-wrapper{
     padding: 15px;
     height: 120px;
     overflow-y: auto;
-    border: 1px solid #337ab7;
-    border-top: none;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
   }
 
   .panel-header{
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border:none;
+    cursor: pointer;
+    color:black;
+    opacity: 0.5;
   }
   
-  .false-panel.open > div.panel-body {
+  input[type="radio"]:checked ~ div.panel-body {
+    border: 1px solid white;
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     transform: scaleY(1);
-    background-color:white;
-    color:black;
+    background-color:black;
+    color:white;
+    opacity: 1;
   }
 
-  .false-panel.open > div.panel-header{
-    border: 1px solid #337ab7;
-    background-color:white;
-    color:black;
+  input[type="radio"]:checked ~ div.panel-header{
+    border: 1px solid white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color:black;
+    color:white;
+    opacity: 1;
   }
   
   .text-center {
@@ -124,6 +127,11 @@
   }
   .rp.progress{
       background-color: orange;
+  }
+
+  div.wrapper{
+    max-height: 500px;
+    overflow-y: auto;
   }
 
   .back{
@@ -156,6 +164,7 @@
 
   .tooltip .infosgen{
     width: 300px;
+    box-shadow: 10px 10px 5px #656565;
   }
 
   .titreun{
