@@ -86,7 +86,7 @@
 
   panels.select("div.panel-header")
     .append("div")
-    .attr("class", "text-center")
+    .attr("class", function(d) {return "text-center " + d.groupe;})
     .text(function (d) { return d.name; });
 
     panels.append("div")

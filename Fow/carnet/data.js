@@ -132,45 +132,54 @@
   var relations = [
     {
       "name": "Lenna Halo",
+      "groupe": "seraph",
       "avatar": "http://i.imgur.com/lv5DVqD.jpg",
       "description": "Description à venir."
     },
     {
       "name": "Léonardo Zeit",
+      "groupe": "seraph",
       "avatar": "http://i.imgur.com/JXIUwro.jpg",
       "description": "Description à venir."
     },
     {
       "name": "Alice Nightray",
+      "groupe": "nephil",
       "avatar": "http://i.imgur.com/02ndvuq.png",
       "description": "Description à venir."
     },
     {
       "name": "Alys Rousseau",
+      "groupe": "nephil",
       "avatar": "http://i.imgur.com/NBEvOpc.jpg",
       "description": "Description à venir."
     },{
       "name": "Gamaliel Collins",
+      "groupe": "seraph",
       "avatar": "http://i.imgur.com/0MlbWl3.jpg",
       "description": "Description à venir."
     },
     {
       "name": "Aoba Murasaki",
+      "groupe": "nephil",
       "avatar": "http://i.imgur.com/KG0gKV1.png",
       "description": "Description à venir."
     },
     {
       "name": "Luna Nightgale",
+      "groupe": "nephil",
       "avatar": "http://i.imgur.com/uOjNbhW.jpg",
       "description": "Description à venir."
     },
     {
       "name": "Victoire Owen",
+      "groupe": "humain",
       "avatar": "http://i.imgur.com/5Hgp7yc.jpg",
       "description": "Description à venir."
     },
     {
       "name": "Iris Khan Delsatre",
+      "groupe": "humain",
       "avatar": "http://i.imgur.com/5Hgp7yc.jpg",
       "description": "Description à venir."
     }
