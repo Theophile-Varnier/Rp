@@ -82,7 +82,7 @@
       "url": "http://fateofwishes.forumactif.org/t2985-batiment-nightray-production-le-debut-des-ennuis",
       "close": 80,
       "titre" : "Le début des ennui ?",
-      "status": "progress",
+      "status": "closed",
       "description": "Il paraît qu'il vaut mieux éviter d'énerver les gens qui ont plus de pouvoir que vous. Edward va le découvrir à ses dépends lorsqu'il va faire fuir l'un des plus gros clients de la Nightray Company..."
     },
     {
@@ -127,6 +127,20 @@
       "status": "progress",
       "description": "C'est quoi cet endroit ? Et vous êtes qui, vous ? Les menottes, c'est normal ?"
     },
+    {
+      "partenaires": [
+        {
+        "nom":"Naoto Shirogane",
+        "groupe": "seraph"
+        }],
+      "date": "20/03/2017",
+      "lieu": "Rue Washington",
+      "url": "http://fateofwishes.forumactif.org/t3127-rue-washington-on-se-connait",
+      "close": 80,
+      "titre" : "On s'connaît ?",
+      "status": "progress",
+      "description": "Edward croise une jeune maman au volant de sa poussette et se rend compte bien vite qu'il s'agit en fait d'une ancienne inspectrice du commissariat où il effectue son stage."
+    },
   ];
 
   var relations = [
@@ -134,7 +148,7 @@
       "name": "Lenna Halo",
       "groupe": "seraph",
       "avatar": "http://i.imgur.com/lv5DVqD.jpg",
-      "description": "Description à venir."
+      "description": "Edward ne sait pas vraiment quoi penser de Lenna. Et d'ailleurs il ne sait pas vraiment ce qu'elle pense de lui non plus. A mi-chemin entre la complicité et l'exaspération, bien malin serait celui qui saura prédire l'avenir de cette relation."
     },
     {
       "name": "Léonardo Zeit",
@@ -146,7 +160,7 @@
       "name": "Alice Nightray",
       "groupe": "nephil",
       "avatar": "http://i.imgur.com/02ndvuq.png",
-      "description": "Description à venir."
+      "description": "Edward et Alice ne sont pas vraiment partis sur les meilleures bases. Elle pète sec, lui calamité ambulante, ils ne sont sur le papier pas faits pour s'entendre. Pourtant Edward a cru déceler une once de compassion chez la jeune femme, et le travail qu'il effectue pour elle pourrait améliorer leur relation."
     },
     {
       "name": "Alys Rousseau",
@@ -180,7 +194,7 @@
     {
       "name": "Iris Khan Delsatre",
       "groupe": "humain",
-      "avatar": "http://i.imgur.com/5Hgp7yc.jpg",
+      "avatar": "http://i.imgur.com/O3tf18A.jpg",
       "description": "Description à venir."
     }
   ];
