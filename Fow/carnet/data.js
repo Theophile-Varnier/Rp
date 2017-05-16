@@ -113,6 +113,20 @@
       "status": "closed",
       "description": "Après une rencontre désagréable avec Alice Nightray, Edward se met en quête de la prochaine étoile montante de la musique. Seulement C'est plus difficile qu'on pourrait croire quand on y connaît rien..."
     },
+	{
+      "partenaires": [
+        {
+        "nom":"Luna Nightingale",
+        "groupe": "nephil"
+        }],
+      "date": "05/04/2017",
+      "lieu": "Jazz Manouche",
+      "url": "http://fateofwishes.forumactif.org/t3042-boite-de-nuit-hungry-jackal-non-mais-t-as-vu-c-que-t-ecoutes",
+      "close": 80,
+      "titre" : "Qui veut devenir une star ?",
+      "status": "progress",
+      "description": "Après une rencontre désagréable avec Alice Nightray, Edward se met en quête de la prochaine étoile montante de la musique. Seulement C'est plus difficile qu'on pourrait croire quand on y connaît rien..."
+    },
     {
       "partenaires": [
         {

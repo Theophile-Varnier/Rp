@@ -2,7 +2,10 @@ $(function () {
     // Set the dimensions of the canvas / graph
   var margin = { top: 0, right: 0, bottom: 30, left: 50 },
     width = 600 - margin.left - margin.right,
-    height = 150 - margin.top - margin.bottom;  
+    height = 150 - margin.top - margin.bottom,
+	circleWidth = 20,
+	paddingRp = 10,
+	baseHeight = (height - circleWidth) / 2;
 
   var hashedData = new Map();    
     
@@ -61,12 +64,16 @@ var xdates = d3.extent(data, function (d) { return d.date; });
 
   for(var rpDate in hashedData){
     var rps = hashedData[rpDate];
+	var nbRps = rps.length();
     rps.forEach(function(e, i){
       var participants ="";
       for(var j = 0; j < e.partenaires.length; j++){
         participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
       }
-        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + (xRange(e.date)-10) + "px;top:" + (height/2 -10) + "px;" });
+	  /*var currentHeight = 
+                    (n + 1) % 2 * (Math.Pow(-1, i) * ((p + d) / 2 + i / 2 * (p + d)))
+                    + n % 2 * ((i + 1) / 2 * (p + d) * Math.Pow(-1, i));*/
+        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + (xRange(e.date)-(circleWidth/2)) + "px;top:" + baseHeight + "px;" });
         var tooltip = $("<div>", {"class" : "tooltip"});
         var tooltipTitle = $("<a>", {"href": e.url}).append($("<span>", {"class": "titreun"}).text(e.titre));
         var tooltipDescription = $("<div>", {"class": "infosgen"}).html(function() { return e.lieu + " - " + participants;});
