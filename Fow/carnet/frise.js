@@ -3,7 +3,8 @@ $(function () {
   var margin = { top: 0, right: 0, bottom: 30, left: 50 },
     width = 600 - margin.left - margin.right,
     height = 150 - margin.top - margin.bottom;  
-    
+
+  var hashedData = new Map();    
     
   // Parse the date / time
   var parseDate = d3.timeParse("%d/%m/%Y");
@@ -11,8 +12,14 @@ $(function () {
     data.forEach(function (d, i) {
     d.date = parseDate(d.date);
     d.close = +d.close;
-	d.id = i;
+	  d.id = i;
+
+    if(!hashedData.has(d.date)){
+      hashedData[d.date] = [];
+    }
+    hashedData[d.date].push(d);
   });
+
 
   var locale = d3.timeFormatLocale({
   "decimal": ".",
@@ -54,7 +61,9 @@ var xdates = d3.extent(data, function (d) { return d.date; });
   // Define the axes
   var xAxis = d3.axisBottom().scale(xRange).ticks(d3.timeMonth.every(1)).tickFormat(locale.format("%B %Y"));
 
-    data.forEach(function (e, i) {
+  for(var rpDate in hashedData){
+    var rps = hashedData[rpDate];
+    rps.forEach(function(e, i){
       var participants ="";
       for(var j = 0; j < e.partenaires.length; j++){
         participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
@@ -72,6 +81,26 @@ var xdates = d3.extent(data, function (d) { return d.date; });
         rp.append(tooltip);
         $(".graph").attr("style", "margin-left:" + margin.left + "px;height:" + height + "px;" + "width:" + width + "px;").append(rp);
     });
+  }
+
+/*    data.forEach(function (e, i) {
+      var participants ="";
+      for(var j = 0; j < e.partenaires.length; j++){
+        participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
+      }
+        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + (xRange(e.date)-10) + "px;top:" + (height/2 -10) + "px;" });
+        var tooltip = $("<div>", {"class" : "tooltip"});
+        var tooltipTitle = $("<a>", {"href": e.url}).append($("<span>", {"class": "titreun"}).text(e.titre));
+        var tooltipDescription = $("<div>", {"class": "infosgen"}).html(function() { return e.lieu + " - " + participants;});
+        var rpDescription = $("<div>", {"class": "sepafiche"}).text(function(){
+            return e.description;
+        });
+        tooltipDescription.append(rpDescription);
+        tooltip.append(tooltipTitle);
+        tooltip.append(tooltipDescription);
+        rp.append(tooltip);
+        $(".graph").attr("style", "margin-left:" + margin.left + "px;height:" + height + "px;" + "width:" + width + "px;").append(rp);
+    }); */
 
     var legend = $("<div>", {"class": "legend"});
     legend.append(
