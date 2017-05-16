@@ -40,7 +40,7 @@
       "url": "http://fateofwishes.forumactif.org/t2851-maison-de-edward-intrusion",
       "close": 80,
       "titre" : "Intrusion",
-      "status": "progress",
+      "status": "closed",
       "description" : "Un mystérieux homme débarque chez Edward et y fout le bordel en se battant... tout seul."
     },
     {
@@ -110,7 +110,7 @@
       "url": "http://fateofwishes.forumactif.org/t3042-boite-de-nuit-hungry-jackal-non-mais-t-as-vu-c-que-t-ecoutes",
       "close": 80,
       "titre" : "Nan mais t'as vu c'que t'écoutes ?",
-      "status": "progress",
+      "status": "closed",
       "description": "Après une rencontre désagréable avec Alice Nightray, Edward se met en quête de la prochaine étoile montante de la musique. Seulement C'est plus difficile qu'on pourrait croire quand on y connaît rien..."
     },
     {
@@ -138,7 +138,7 @@
       "url": "http://fateofwishes.forumactif.org/t3127-rue-washington-on-se-connait",
       "close": 80,
       "titre" : "On s'connaît ?",
-      "status": "progress",
+      "status": "closed",
       "description": "Edward croise une jeune maman au volant de sa poussette et se rend compte bien vite qu'il s'agit en fait d'une ancienne inspectrice du commissariat où il effectue son stage."
     },
   ];

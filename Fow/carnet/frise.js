@@ -48,8 +48,6 @@ var xdates = d3.extent(data, function (d) { return d.date; });
 
   var monthes = d3.timeMonth.range(xdates[0], xdates[1], 1);
 
-  var lastX = 0;
-
   for(var i = 0; i < monthes.length; i++){
       var month = monthes[i];
       var nextMonth = d3.timeMonth.offset(month);
