@@ -2,7 +2,7 @@ $(function () {
     // Set the dimensions of the canvas / graph
   var margin = { top: 0, right: 0, bottom: 30, left: 50 },
     width = 600 - margin.left - margin.right,
-    height = 150 - margin.top - margin.bottom,
+    height = 200 - margin.top - margin.bottom,
 	circleWidth = 20,
 	paddingRp = 10,
 	baseHeight = (height - circleWidth) / 2;
@@ -13,14 +13,14 @@ $(function () {
   var parseDate = d3.timeParse("%d/%m/%Y");
 
     data.forEach(function (d, i) {
+    if(!hashedData.get(d.date)){
+      hashedData.set(d.date, []);
+    }
+    hashedData.get(d.date).push(d);
+	
     d.date = parseDate(d.date);
     d.close = +d.close;
 	  d.id = i;
-
-    if(!hashedData.has(d.date)){
-      hashedData[d.date] = [];
-    }
-    hashedData[d.date].push(d);
   });
 
 
@@ -62,18 +62,19 @@ var xdates = d3.extent(data, function (d) { return d.date; });
   // Define the axes
   var xAxis = d3.axisBottom().scale(xRange).ticks(d3.timeMonth.every(1)).tickFormat(locale.format("%B %Y"));
 
-  for(var rpDate in hashedData){
-    var rps = hashedData[rpDate];
-	var nbRps = rps.length();
+  //for(var rpDate in hashedData){
+  for (var rps of hashedData.values()){
+    //var rps = hashedData[rpDate];
+	var nbRps = rps.length;
     rps.forEach(function(e, i){
       var participants ="";
       for(var j = 0; j < e.partenaires.length; j++){
         participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
       }
-	  /*var currentHeight = 
-                    (n + 1) % 2 * (Math.Pow(-1, i) * ((p + d) / 2 + i / 2 * (p + d)))
-                    + n % 2 * ((i + 1) / 2 * (p + d) * Math.Pow(-1, i));*/
-        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + (xRange(e.date)-(circleWidth/2)) + "px;top:" + baseHeight + "px;" });
+	  var currentHeight = baseHeight +
+                    (nbRps + 1) % 2 * (Math.pow(-1, i) * ((paddingRp + circleWidth) / 2 + Math.floor(i / 2) * (paddingRp + circleWidth)))
+                    + nbRps % 2 * (Math.floor((i + 1) / 2) * (paddingRp + circleWidth) * Math.pow(-1, i));
+        var rp = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + (xRange(e.date)-(circleWidth/2)) + "px;bottom:" + currentHeight + "px;" });
         var tooltip = $("<div>", {"class" : "tooltip"});
         var tooltipTitle = $("<a>", {"href": e.url}).append($("<span>", {"class": "titreun"}).text(e.titre));
         var tooltipDescription = $("<div>", {"class": "infosgen"}).html(function() { return e.lieu + " - " + participants;});
