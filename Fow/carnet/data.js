@@ -120,12 +120,12 @@
         "groupe": "nephil"
         }],
       "date": "05/04/2017",
-      "lieu": "Jazz Manouche",
-      "url": "http://fateofwishes.forumactif.org/t3042-boite-de-nuit-hungry-jackal-non-mais-t-as-vu-c-que-t-ecoutes",
+      "lieu": "Piano's Corner",
+      "url": "http://fateofwishes.forumactif.org/t3160-piano-s-corner-qui-veut-devenir-une-star",
       "close": 80,
       "titre" : "Qui veut devenir une star ?",
       "status": "progress",
-      "description": "Après une rencontre désagréable avec Alice Nightray, Edward se met en quête de la prochaine étoile montante de la musique. Seulement C'est plus difficile qu'on pourrait croire quand on y connaît rien..."
+      "description": "Les recherches d'Edward de la perle qui pourra payer sa dette auprès d'Alice Nightray continue, dans un bar recommandé par sa rencontre du soir qui a gracieusement accepté de l'aider dans sa quête."
     },
     {
       "partenaires": [
@@ -154,6 +154,20 @@
       "titre" : "On s'connaît ?",
       "status": "closed",
       "description": "Edward croise une jeune maman au volant de sa poussette et se rend compte bien vite qu'il s'agit en fait d'une ancienne inspectrice du commissariat où il effectue son stage."
+    },
+	{
+      "partenaires": [
+        {
+        "nom":"Alice Nightray",
+        "groupe": "nephil"
+        }],
+      "date": "01/05/2017",
+      "lieu": "Commissariat",
+      "url": "http://fateofwishes.forumactif.org/t3154-commissariat-ou-est-ce-qu-on-signe-part-1",
+      "close": 80,
+      "titre" : "Où est-ce qu'on signe [Part 1] ?",
+      "status": "progress",
+      "description": "Le drame du décès de ses parents semble avoir bouleversé Edward, qui cherche du réconfort (et un toit) auprès de sa créancière Alice Nightray. Celle-ci en profite pour glaner des informations sur les circonstances douteuses de ce qui semble être un double suicide injustifié."
     },
   ];
 
