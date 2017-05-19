@@ -115,7 +115,7 @@
   }
 
   .graph{
-      position: absolute;
+      position: relative;
   }
 
   .rp{
@@ -140,6 +140,12 @@
     border-radius: 30px;
     border: 1px solid black;
     width:650px;
+    overflow-y:visible;
+  }
+
+  .graph-wrapper{
+    overflow-x:auto;
+    overflow-y:visible;
   }
 
   .rp.finished{
