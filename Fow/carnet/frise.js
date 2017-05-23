@@ -1,7 +1,7 @@
 $(function () {
     // Set the dimensions of the canvas / graph
   var margin = { top: 0, right: 0, bottom: 30, left: 50 },
-    width = 600 - margin.left - margin.right,
+    width = 750 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom,
 	circleWidth = 20,
 	paddingRp = 10,
@@ -102,7 +102,7 @@ var xdates = d3.extent(data, function (d) { return d.date; });
   var svg = d3.select(".axe")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
+    .attr("height", margin.bottom);
    var g = svg.append("g")
     .attr("transform",
     "translate(" + margin.left + "," + margin.top + ")"); 
@@ -110,7 +110,6 @@ var xdates = d3.extent(data, function (d) { return d.date; });
   // Add the X Axis
   g.append("g")
     .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
 
     
