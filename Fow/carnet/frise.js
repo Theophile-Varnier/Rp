@@ -1,13 +1,13 @@
 $(function () {
     // Set the dimensions of the canvas / graph
   var margin = { top: 0, right: 0, bottom: 30, left: 50 },
-    width = 750 - margin.left - margin.right,
+    width = 600 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom,
 	circleWidth = 20,
 	paddingRp = 10,
 	baseHeight = height / 2;
 
-  var hashedData = new Map();    
+  var hashedData = new Map();
     
   // Parse the date / time
   var parseDate = d3.timeParse("%d/%m/%Y");
