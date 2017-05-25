@@ -68,7 +68,7 @@
       "url": "http://fateofwishes.forumactif.org/t2901-bar-le-caporal-vous-pensez-rester-longtemps",
       "close": 80,
       "titre" : "Vous pensez rester longtemps ?",
-      "status": "progress",
+      "status": "closed",
       "description": "Piégé dans un bar terriblement ennuyeux pour l'anniversaire d'une camarade de classe, Edward voit son salut venir d'une ancienne connaissance qui passe également une soirée de merde. Ne reste plus qu'à trouver d'où il connaît cette jeune femme..."
     },
     {

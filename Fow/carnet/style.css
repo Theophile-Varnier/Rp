@@ -61,7 +61,7 @@
     border: none;
   }
 
-  .avatars label > input{ 
+  .back input{ 
   visibility: hidden; 
   position: absolute;
 }
@@ -114,8 +114,45 @@
     text-align: center;
   }
 
+  .full-wrapper{
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+  }
+
+  .tri-head{
+      margin:5px;
+  }
+
   .graph{
       position: relative;
+  }
+
+  .graph-wrapper{
+    position:absolute;
+      display:inline-block;
+      transition: transform 0.25s ease;
+      transform: translateX(-800px);
+      top:20px;
+      left:0;
+  }
+
+  input[type="radio"]:checked ~ label + div.graph-wrapper{
+      transform: translateX(800px);
+  }
+
+  input[type="radio"]:checked + label + div.graph-wrapper{
+      transform: translateX(0);
+  }
+
+  input[type="radio"] + label:hover{
+    font-weight: bolder;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked + label{
+    font-weight: bold;
+    text-decoration: underline;
   }
 
   .rp{
@@ -151,7 +188,7 @@
     transform: scaleY(0);
     transition: transform 0.25s ease;
     transform-origin: 50% 0;
-      top:8px;
+      top:20px;
       left:8px; 
       position: absolute;
   }
