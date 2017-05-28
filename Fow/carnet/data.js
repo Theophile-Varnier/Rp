@@ -13,6 +13,7 @@
       "close": 40,
       "titre" : "C'est pas la gare ça, si ?",
       "status": "closed",
+      "quartier": "nord",
       "description" : "Perdu au beau milieu d'un parc, Edward se met en quête d'une bonne âme pour lui indiquer le chemin de la gare."
     },
     {
@@ -27,6 +28,7 @@
       "close": 60,
       "titre" : "C'est possible de déjeuner en paix ?",
       "status": "progress",
+      "quartier": "est",
       "description" : "Rencontre anodine entre notre blondin et un garçon dont la patience semble dépasser l'entendement."
     },
     {
@@ -55,6 +57,7 @@
       "close": 80,
       "titre" : "Plan foireux ou heureuse rencontre ?",
       "status": "progress",
+      "quartier": "nord",
       "description": "Après une soirée arrosée, Edward se retrouve à devoir aller à un rendez-vous (galant ?) avec une fille dont il ignore tout..."
     },
     {
@@ -69,6 +72,7 @@
       "close": 80,
       "titre" : "Vous pensez rester longtemps ?",
       "status": "closed",
+      "quartier": "est",
       "description": "Piégé dans un bar terriblement ennuyeux pour l'anniversaire d'une camarade de classe, Edward voit son salut venir d'une ancienne connaissance qui passe également une soirée de merde. Ne reste plus qu'à trouver d'où il connaît cette jeune femme..."
     },
     {
@@ -83,6 +87,7 @@
       "close": 80,
       "titre" : "Le début des ennui ?",
       "status": "closed",
+      "quartier": "nord",
       "description": "Il paraît qu'il vaut mieux éviter d'énerver les gens qui ont plus de pouvoir que vous. Edward va le découvrir à ses dépends lorsqu'il va faire fuir l'un des plus gros clients de la Nightray Company..."
     },
     {
@@ -97,6 +102,7 @@
       "close": 80,
       "titre" : "ADHA et Syndrome de Stendhal",
       "status": "progress",
+      "quartier": "est",
       "description" : "Journée culturelle au Musée d'Arts Naturels de Palema. Mais... Où est passé ce foutu guide ?"
     },
     {
@@ -111,6 +117,7 @@
       "close": 80,
       "titre" : "Nan mais t'as vu c'que t'écoutes ?",
       "status": "closed",
+      "quartier": "sud",
       "description": "Après une rencontre désagréable avec Alice Nightray, Edward se met en quête de la prochaine étoile montante de la musique. Seulement C'est plus difficile qu'on pourrait croire quand on y connaît rien..."
     },
 	{
@@ -125,6 +132,7 @@
       "close": 80,
       "titre" : "Qui veut devenir une star ?",
       "status": "progress",
+      "quartier": "nord",
       "description": "Les recherches d'Edward de la perle qui pourra payer sa dette auprès d'Alice Nightray continue, dans un bar recommandé par sa rencontre du soir qui a gracieusement accepté de l'aider dans sa quête."
     },
     {
@@ -139,6 +147,7 @@
       "close": 80,
       "titre" : "Réveil improbable",
       "status": "progress",
+      "quartier": "est",
       "description": "C'est quoi cet endroit ? Et vous êtes qui, vous ? Les menottes, c'est normal ?"
     },
     {
@@ -153,6 +162,7 @@
       "close": 80,
       "titre" : "On s'connaît ?",
       "status": "closed",
+      "quartier": "est",
       "description": "Edward croise une jeune maman au volant de sa poussette et se rend compte bien vite qu'il s'agit en fait d'une ancienne inspectrice du commissariat où il effectue son stage."
     },
 	{
@@ -167,6 +177,7 @@
       "close": 80,
       "titre" : "Où est-ce qu'on signe [Part 1] ?",
       "status": "progress",
+      "quarter": "est",
       "description": "Le drame du décès de ses parents semble avoir bouleversé Edward, qui cherche du réconfort (et un toit) auprès de sa créancière Alice Nightray. Celle-ci en profite pour glaner des informations sur les circonstances douteuses de ce qui semble être un double suicide injustifié."
     },
   ];

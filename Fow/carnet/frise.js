@@ -137,9 +137,9 @@ for(var [key, value] of hashedData){
         participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
       }
       var left = Math.floor(xRange(e.date)-(circleWidth/2));
-      var tooltipLeft = 8;
+      var tooltipLeft = -10;
       if(left > 350){
-        tooltipLeft = -342;
+        tooltipLeft = -300;
       } else if(width - left < 350){
         tooltipLeft = -175;
       }
