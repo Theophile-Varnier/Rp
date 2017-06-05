@@ -91,7 +91,7 @@ for(var [key, value] of hashedData){
     var axe = $("<div>", {"class": "axe"});
     var wrapper = $("<div>", {"class": "graph-wrapper"}).append(graph).append(axe);
     var inputAttr;
-    if(i == 0){
+    if(i == hashedRps.length - 1){
       inputAttr ={
         "type": "radio",
         "name": "trimestre",

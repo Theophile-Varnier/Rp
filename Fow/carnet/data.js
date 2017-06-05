@@ -176,9 +176,39 @@
       "url": "http://fateofwishes.forumactif.org/t3154-commissariat-ou-est-ce-qu-on-signe-part-1",
       "close": 80,
       "titre" : "Où est-ce qu'on signe [Part 1] ?",
-      "status": "progress",
+      "status": "closed",
       "quarter": "est",
       "description": "Le drame du décès de ses parents semble avoir bouleversé Edward, qui cherche du réconfort (et un toit) auprès de sa créancière Alice Nightray. Celle-ci en profite pour glaner des informations sur les circonstances douteuses de ce qui semble être un double suicide injustifié."
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Alice Nightray",
+        "groupe": "nephil"
+        }],
+      "date": "04/05/2017",
+      "lieu": "Maison d'Edward",
+      "url": "http://fateofwishes.forumactif.org/t3223-maison-de-edward-ou-est-ce-qu-on-signe-part-2",
+      "close": 80,
+      "titre" : "Où est-ce qu'on signe [Part 2] ?",
+      "status": "progress",
+      "quarter": "est",
+      "description": "Edward et Alice se lancent à la recherche d'informations qui pourraient aider le garçon à comprendre la mort de ses parents."
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Hailey JL Walker-Campbell",
+        "groupe": "humain"
+        }],
+      "date": "15/04/2017",
+      "lieu": "Cirque Walker",
+      "url": "http://fateofwishes.forumactif.org/t3223-maison-de-edward-ou-est-ce-qu-on-signe-part-2",
+      "close": 80,
+      "titre" : "Combien pour un cours de dressage ?",
+      "status": "progress",
+      "quarter": "est",
+      "description": "Help ! Un Lama !"
     },
   ];
 
