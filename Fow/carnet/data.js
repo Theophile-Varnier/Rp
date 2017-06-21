@@ -210,6 +210,36 @@
       "quarter": "est",
       "description": "Help ! Un Lama !"
     },
+    {
+      "partenaires": [
+        {
+        "nom":"Elise Blanche",
+        "groupe": "humain"
+        }],
+      "date": "20/04/2017",
+      "lieu": "Supérette  BestBuy",
+      "url": "http://fateofwishes.forumactif.org/t3259-superette-bestbuy-vous-prenez-la-carte",
+      "close": 80,
+      "titre" : "Vous prenez la carte ?",
+      "status": "progress",
+      "quarter": "sud",
+      "description": "Help ! Un Lama !"
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Lenna Halo",
+        "groupe": "seraph"
+        }],
+      "date": "04/05/2017",
+      "lieu": "1ère Couverture Réseau du Pays",
+      "url": "http://fateofwishes.forumactif.org/t3303-1ere-couverture-reseau-du-pays-ennemis",
+      "close": 80,
+      "titre" : "Ennemis ?",
+      "status": "progress",
+      "quarter": "sud",
+      "description": "Help ! Un Lama !"
+    },
   ];
 
   var relations = [
