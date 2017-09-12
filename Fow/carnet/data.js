@@ -191,7 +191,7 @@
       "url": "http://fateofwishes.forumactif.org/t3223-maison-de-edward-ou-est-ce-qu-on-signe-part-2",
       "close": 80,
       "titre" : "Où est-ce qu'on signe [Part 2] ?",
-      "status": "progress",
+      "status": "closed",
       "quarter": "est",
       "description": "Edward et Alice se lancent à la recherche d'informations qui pourraient aider le garçon à comprendre la mort de ses parents."
     },
@@ -236,6 +236,79 @@
       "url": "http://fateofwishes.forumactif.org/t3303-1ere-couverture-reseau-du-pays-ennemis",
       "close": 80,
       "titre" : "Ennemis ?",
+      "status": "closed",
+      "quarter": "sud",
+      "description": "Help ! Un Lama !"
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Alice Nightray",
+        "groupe": "nephil"
+        }],
+      "date": "04/05/2017",
+      "lieu": "Espace de détente",
+      "url": "http://fateofwishes.forumactif.org/t3356-espace-de-detente-ou-est-ce-qu-on-signe-part-3",
+      "close": 80,
+      "titre" : "Où est-ce qu'on signe ? [Part 3]",
+      "status": "progress",
+      "quarter": "sud",
+      "description": "Help ! Un Lama !"
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Peter Jensen",
+        "groupe": "nephil"
+        }],
+      "date": "17/05/2017",
+      "lieu": "Médiathèque",
+      "url": "http://fateofwishes.forumactif.org/t3341-mediatheque-tourisme-chez-les-nephils",
+      "close": 80,
+      "titre" : "Tourisme chez les Nephils",
+      "status": "progress",
+      "quarter": "sud",
+      "description": "Help ! Un Lama !"
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Marguerite Banks",
+        "groupe": "seraph"
+        }],
+      "date": "10/05/2017",
+      "lieu": "Rue Wilson",
+      "url": "http://fateofwishes.forumactif.org/t3316-rue-wilson-dechat-vu",
+      "close": 80,
+      "titre" : "Déchat vu ?",
+      "status": "progress",
+      "quarter": "sud",
+      "description": "Help ! Un Lama !"
+    },
+    {
+      "partenaires": [
+        {
+        "nom":"Nelysta",
+        "groupe": "nephil"
+      },
+      {
+        "nom":"Liorah Campbell",
+        "groupe": "seraph"
+      },
+      {
+        "nom":"Ethan Evans",
+        "groupe": "seraph"
+      },
+      {
+        "nom":"Corrine",
+        "groupe": "pnj"
+      },
+      ],
+      "date": "12/05/2017",
+      "lieu": "Club de boxe",
+      "url": "http://fateofwishes.forumactif.org/t3416-event-groupe-6-ready-fight",
+      "close": 80,
+      "titre" : "Ready ? Fight !",
       "status": "progress",
       "quarter": "sud",
       "description": "Help ! Un Lama !"

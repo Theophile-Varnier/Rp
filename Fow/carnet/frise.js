@@ -134,7 +134,7 @@ for(var [key, value] of hashedData){
     rps.forEach(function(e, i){
       var participants ="";
       for(var j = 0; j < e.partenaires.length; j++){
-        participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> ";
+        participants += "<span class='" + e.partenaires[j].groupe + "'>" + e.partenaires[j].nom + "</span> - ";
       }
       var left = Math.floor(xRange(e.date)-(circleWidth/2));
       var tooltipLeft = -10;
