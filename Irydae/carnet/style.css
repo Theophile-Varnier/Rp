@@ -1,93 +1,11 @@
-  path {
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
-  }
-  
-  .axis path,
-  .axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
-  }
-  
-  .thumbnail {
-    display: block;
-    padding: 4px;
-    margin-bottom: 20px;
-    line-height: 1.42857143;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    -webkit-transition: border .2s ease-in-out;
-    -o-transition: border .2s ease-in-out;
-    transition: border .2s ease-in-out;
-  }
-  
-  img.thumbnail,
-  .thumbnail a>img {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  
-  a.thumbnail:hover,
-  a.thumbnail:focus,
-  a.thumbnail.active {
-    border-color: #337ab7;
-  }
-  
-  img.thumbnail,
-  .thumbnail a>img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .img-circle {
-    border-radius: 50% !important;
-  }
-  
-  img.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .false-panel {
-    width: 200px;
-    color:black;
-    display: inline-block;
-    margin-bottom: 20px;
-    border: none;
-  }
-
   .back input{ 
   visibility: hidden; 
   position: absolute;
 }
-  
-  .panel-body {
-    border:none;
-    transform: scaleY(0);
-    transition: transform 0.25s ease;
-    transform-origin: 50% 0;
-    color: black;
-    padding: 10px;
-    opacity: 0.5;
-    text-align: justify;
-  }
-
   .panel-body-wrapper{
     padding: 15px;
     height: 120px;
     overflow-y: auto;
-  }
-
-  .panel-header{
-    border:none;
-    cursor: pointer;
-    color:black;
-    opacity: 0.5;
   }
   
   input[type="radio"]:checked ~ div.panel-body {
@@ -117,6 +35,8 @@
   .full-wrapper{
     position: relative;
     overflow: hidden;
+    width: 650px;
+    height: 650px;
   }
 
   .full-wrapper img{

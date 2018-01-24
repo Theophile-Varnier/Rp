@@ -52,8 +52,7 @@ $(function () {
 
 var dateFormat = locale.format("%b %Y");
 
-var content = $("<div>", {"class": "content-wrapper", "style": "width:"+width+"px;height:" + height + "px;"}).append($("<img>", {"src": "https://i.imgur.com/sO0BzoA.png"}));
-  $(".full-wrapper").append(content);
+  $(".full-wrapper").append($("<img>", {"src": "https://i.imgur.com/sO0BzoA.png"}));
 
     // Scale the range of the data
 var xdates = d3.extent(data, function (d) { return d.debut; });
@@ -92,7 +91,7 @@ for(var [key, value] of hashedData){
   for(var i = 0; i < hashedRps.length; ++i){
     var annee = hashedRps[i];
     var graph = $("<div>", {"class": "graph"});
-    var wrapper = $("<div>", {"class": "graph-wrapper"}).append(graph);
+    var wrapper = $("<div>", {"class": "graph-wrapper"});//.append(graph);
     var inputAttr;
     if(i == hashedRps.length - 1){
       inputAttr ={
@@ -108,13 +107,14 @@ for(var [key, value] of hashedData){
         "id": annee.label
       }
     }
-    content.append($("<input>", inputAttr)).append(
+    $(".full-wrapper").append($("<input>", inputAttr)).append(
       $("<label>", {"for": annee.label})
       .append($("<span>", {"class": "tri-head"}).text(annee.label))
       )
       .append(wrapper);
 
   for (var periode of annee.rps){
+    var init = true;
     for(var e of periode){
       var left = e.position.y-(circleWidth/2);
       var tooltipLeft = -10;
@@ -146,7 +146,7 @@ for(var [key, value] of hashedData){
         tooltip.append(titlePanel);
         tooltip.append(contentPanel);
         rpDiv.append(tooltip);
-        graph.append(rpDiv);
+        wrapper.append(rpDiv);
     }
   }
 
