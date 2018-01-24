@@ -20,13 +20,33 @@ var data = [
       }]
   },
   {
-    "lieu": "Alexandria",
+    "lieu": "Tyorum",
     "position": {
       "x": 300,
-      "y": 0
+      "y": 150
     },
     "debut": "02/01/933",
     "fin": "01/02/933",
+    "rps": [
+      {
+        "partenaires": [
+          {
+            "nom": "Eskarina Hellaraxë",
+            "groupe": "peregrin"
+          }],
+        "url": "http://irydae.forumactif.org/t1281-voyage-en-terre-inconnue",
+        "titre": "Voyage en terre inconnue",
+        "status": "progress",
+      }]
+  },
+  {
+    "lieu": "Alexandria",
+    "position": {
+      "x": 300,
+      "y": 100
+    },
+    "debut": "02/02/933",
+    "fin": "01/03/933",
     "rps": [
       {
         "partenaires": [
