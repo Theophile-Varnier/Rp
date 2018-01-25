@@ -121,7 +121,7 @@
 
   .full-wrapper img{
     position: absolute;
-    top: 25px;
+    top: 0;
     left:0;
     width: 650px;
   }
@@ -193,9 +193,9 @@
     transform: scaleY(0);
     transition: transform 0.25s ease;
     transform-origin: 50% 0;
-      top:20px;
-      left:8px; 
-      position: absolute;
+    top:20px;
+    left:8px; 
+    position: absolute;
   }
 
   .tooltip .titreun{

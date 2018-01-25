@@ -47,7 +47,7 @@ $(function () {
 
   
   
-  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;" }).append($("<img>", { "src": "https://i.imgur.com/sO0BzoA.png" }));
+  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;" }).append($("<img>", { "src": "https://i.imgur.com/9gynI7l.png" }));
   $(".full-wrapper").append(content);
 
   // Scale the range of the data
