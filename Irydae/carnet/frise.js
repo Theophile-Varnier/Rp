@@ -54,8 +54,7 @@ $(function () {
 
   
   
-  var svg = $("<svg>").setAttr("width", width + "px").setAttr("height", height + "px");
-  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;" }).append($("<img>", { "src": "https://i.imgur.com/sO0BzoA.png" })).append(svg);
+  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;" }).append($("<img>", { "src": "https://i.imgur.com/sO0BzoA.png" }));
   $(".full-wrapper").append(content);
 
   // Scale the range of the data
@@ -93,9 +92,16 @@ $(function () {
   };
 
   for (var i = 0; i < hashedRps.length; ++i) {
+    
+    /*attr("xmlns", "http://www.w3.org/2000/svg") 
+    .attr("version", "1.1")
+    .attr("viewBox", "0 0 650 650")*/;
     var annee = hashedRps[i];
     var graph = $("<div>", { "class": "graph", "style": "width:" + width + "px;height:" + height + "px" });
     var wrapper = $("<div>", { "class": "graph-wrapper" }).append(graph);
+    var svg = d3.select(graph[0]).append("svg")
+    .attr("width", "650")
+    .attr("height", "650");
     var inputAttr;
     if (i == hashedRps.length - 1) {
       inputAttr = {
@@ -131,7 +137,7 @@ $(function () {
         } else if (width - left < 350) {
           tooltipLeft = -175;
         }
-        var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;bottom:" + e.position.y + "px;" });
+        var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;top:" + e.position.y + "px;" });
         var titlePanel = $("<div>", { "class": "panel-title bottom-border" });
         var tooltip = $("<div>", { "class": "tooltip", "style": "left:" + tooltipLeft + "px" });
         var tooltipTitle = $("<span>", { "class": "lieu bottom-border" }).text(e.lieu);
@@ -157,7 +163,12 @@ $(function () {
       }
 
       if (!init) {
-        svg.append($("<line>", { "x1": lastPos.x, "y1": lastPos.y, "x2": e.position.x, "y2": e.position.y, "style": "stroke:rgb(0, 0, 0); stroke-width:2"}));
+        svg.append("line")
+        .attr("x1", lastPos.x + circleWidth/2 + 2)
+        .attr("y1", lastPos.y + circleWidth/2 + 2)
+        .attr("x2", e.position.x + circleWidth/2 + 2)
+        .attr("y2", e.position.y + circleWidth/2 + 2)
+        .attr("style", "stroke:rgb(0, 0, 0); stroke-width:2");
       }
       init = false;
       lastPos.x = e.position.x;

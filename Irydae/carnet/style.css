@@ -139,11 +139,8 @@
       display:inline-block;
       transition: transform 0.25s ease;
       transform: translateX(-800px);
-      top:20px;
+      top:25px;
       left:0;
-      /*background-image: url(https://i.imgur.com/sO0BzoA.png);
-      background-size: cover;
-      background-repeat: no-repeat;*/
   }
 
   input[type="radio"]:checked ~ label + div.graph-wrapper{
@@ -165,8 +162,8 @@
   }
 
   .rp{
-      width:16px;
-      height:16px;
+      width:10px;
+      height:10px;
       border-radius: 50%;
       border: 2px solid white;
       position: absolute;
