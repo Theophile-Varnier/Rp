@@ -138,7 +138,7 @@
     position:absolute;
       display:inline-block;
       transition: transform 0.25s ease;
-      transform: translateX(-800px);
+      /*transform: translateX(-800px);*/
       top:25px;
       left:0;
   }

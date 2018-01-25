@@ -14,19 +14,12 @@ $(function () {
     width = 650,
     height = 650;
 
-  var hashedData = new Map();
-
   var hashedRps = [];
 
   // Parse the date / time
   var parseDate = d3.timeParse("%d/%m/%Y");
 
   data.forEach(function (d, i) {
-    if (!hashedData.get(d.debut)) {
-      hashedData.set(d.debut, []);
-    }
-    hashedData.get(d.debut).push(d);
-
     d.debut = parseDate(d.debut);
     if (d.fin) {
       d.fin = parseDate(d.fin);
@@ -84,25 +77,22 @@ $(function () {
     });
   }
 
-  for (var [key, value] of hashedData) {
+  for (var periode of data) {
     var annee = find(hashedRps, function (obj) {
-      return obj.start <= parseDate(key) && obj.end >= parseDate(key);
+      return obj.start <= periode.debut && (!periode.fin && obj.end >= periode.debut || obj.end >= periode.fin);
     });
-    annee.rps.push(value);
+    annee.rps.push(periode);
   };
 
-  for (var i = 0; i < hashedRps.length; ++i) {
+  //for (var i = 0; i < hashedRps.length; ++i) {
     
-    /*attr("xmlns", "http://www.w3.org/2000/svg") 
-    .attr("version", "1.1")
-    .attr("viewBox", "0 0 650 650")*/;
-    var annee = hashedRps[i];
+    //var annee = hashedRps[i];
     var graph = $("<div>", { "class": "graph", "style": "width:" + width + "px;height:" + height + "px" });
     var wrapper = $("<div>", { "class": "graph-wrapper" }).append(graph);
     var svg = d3.select(graph[0]).append("svg")
     .attr("width", "650")
     .attr("height", "650");
-    var inputAttr;
+    /*var inputAttr;
     if (i == hashedRps.length - 1) {
       inputAttr = {
         "type": "radio",
@@ -116,11 +106,11 @@ $(function () {
         "name": "trimestre",
         "id": annee.label
       }
-    }
-    content.append($("<input>", inputAttr)).append(
+    }*/
+    content/*.append($("<input>", inputAttr)).append(
       $("<label>", { "for": annee.label })
         .append($("<span>", { "class": "tri-head" }).text(annee.label))
-    )
+    )*/
       .append(wrapper);
 
     var init = true;
@@ -128,8 +118,7 @@ $(function () {
       x: 0,
       y: 0
     };
-    for (var periode of annee.rps) {
-      for (var e of periode) {
+    for (var e of data) {
         var left = e.position.y - (circleWidth / 2);
         var tooltipLeft = -10;
         if (left > 350) {
@@ -160,7 +149,6 @@ $(function () {
         tooltip.append(contentPanel);
         rpDiv.append(tooltip);
         graph.append(rpDiv);
-      }
 
       if (!init) {
         svg.append("line")
@@ -174,6 +162,6 @@ $(function () {
       lastPos.x = e.position.x;
       lastPos.y = e.position.y;
     }
-  }
+  //}
 
 });
