@@ -3,27 +3,8 @@ var data = [
   {
     "lieu": "Zolios",
     "position": {
-      "x": 250,
-      "y": 50 
-    },
-    "debut": "01/10/932",
-    "rps": [
-      {
-        "partenaires": [
-          {
-            "nom": "Lycinia Aurès",
-            "groupe": "mytran"
-          }],
-        "url": "http://irydae.forumactif.org/t1299-quand-l-eau-rencontre-la-terre-et-le-feu",
-        "titre": "Quand l'eau rencontre la terre et le feu",
-        "status": "progress",
-      }]
-  },
-  {
-    "lieu": "Eoril",
-    "position": {
-      "x": 250,
-      "y": 30
+      "x": 85,
+      "y": 335
     },
     "debut": "01/11/932",
     "rps": [
@@ -35,18 +16,39 @@ var data = [
           }],
         "url": "http://irydae.forumactif.org/t1282-inserer-titre-inspire-ici",
         "titre": "Insérer titre inspiré ici",
-        "status": "progress",
+      },
+      {
+        "partenaires": [
+          {
+            "nom": "Lycinia Aurès",
+            "groupe": "mytran"
+          }],
+        "url": "http://irydae.forumactif.org/t1299-quand-l-eau-rencontre-la-terre-et-le-feu",
+        "titre": "Quand l'eau rencontre la terre et le feu",
       }]
   },
   {
     "lieu": "Tyorum",
     "position": {
-      "x": 300,
-      "y": 150
+      "x": 550,
+      "y": 335
     },
     "debut": "02/01/933",
     "fin": "01/02/933",
     "rps": [
+      {
+        "partenaires": [
+          {
+            "nom": "Zora Viz'Herei",
+            "groupe": "mytran"
+          },
+          {
+            "nom": "Althéa Ley Ka'Ori",
+            "groupe": "mytran"
+          }],
+        "url": "http://irydae.forumactif.org/t1300-tant-de-mauvaise-foi",
+        "titre": "Tant de mauvaise foi.",
+      },
       {
         "partenaires": [
           {
@@ -55,14 +57,13 @@ var data = [
           }],
         "url": "http://irydae.forumactif.org/t1281-voyage-en-terre-inconnue",
         "titre": "Voyage en terre inconnue",
-        "status": "progress",
       }]
   },
   {
     "lieu": "Alexandria",
     "position": {
-      "x": 300,
-      "y": 100
+      "x": 560,
+      "y": 265
     },
     "debut": "02/02/933",
     "fin": "01/03/933",
@@ -75,63 +76,24 @@ var data = [
           }],
         "url": "http://irydae.forumactif.org/t1290-quels-sont-tes-secrets",
         "titre": "Quels sont tes secrets ?",
-        "status": "progress",
       }]
   },
-];
-
-var relations = [
   {
-    "name": "Lenna Halo",
-    "groupe": "seraph",
-    "avatar": "http://i.imgur.com/lv5DVqD.jpg",
-    "description": "Edward ne sait pas vraiment quoi penser de Lenna. Et d'ailleurs il ne sait pas vraiment ce qu'elle pense de lui non plus. A mi-chemin entre la complicité et l'exaspération, bien malin serait celui qui saura prédire l'avenir de cette relation."
+    "lieu": "Marnaka",
+    "position": {
+      "x": 290,
+      "y": 100
+    },
+    "debut": "02/03/933",
+    "rps": [
+      {
+        "partenaires": [
+          {
+            "nom": "Yssaé",
+            "groupe": "daenar"
+          }],
+        "url": "http://irydae.forumactif.org/t1333-sans-conteste-la-pire-association-de-malfaiteurs-possible",
+        "titre": "Sans conteste la pire association de malfaiteurs possible",
+      }]
   },
-  {
-    "name": "Léonardo Zeit",
-    "groupe": "seraph",
-    "avatar": "http://i.imgur.com/JXIUwro.jpg",
-    "description": "Description à venir."
-  },
-  {
-    "name": "Alice Nightray",
-    "groupe": "nephil",
-    "avatar": "http://i.imgur.com/02ndvuq.png",
-    "description": "Edward et Alice ne sont pas vraiment partis sur les meilleures bases. Elle pète sec, lui calamité ambulante, ils ne sont sur le papier pas faits pour s'entendre. Pourtant Edward a cru déceler une once de compassion chez la jeune femme, et le travail qu'il effectue pour elle pourrait améliorer leur relation."
-  },
-  {
-    "name": "Alys Rousseau",
-    "groupe": "nephil",
-    "avatar": "http://i.imgur.com/NBEvOpc.jpg",
-    "description": "Description à venir."
-  }, {
-    "name": "Gamaliel Collins",
-    "groupe": "seraph",
-    "avatar": "http://i.imgur.com/0MlbWl3.jpg",
-    "description": "Description à venir."
-  },
-  {
-    "name": "Aoba Murasaki",
-    "groupe": "nephil",
-    "avatar": "http://i.imgur.com/KG0gKV1.png",
-    "description": "Description à venir."
-  },
-  {
-    "name": "Luna Nightgale",
-    "groupe": "nephil",
-    "avatar": "http://i.imgur.com/uOjNbhW.jpg",
-    "description": "Description à venir."
-  },
-  {
-    "name": "Victoire Owen",
-    "groupe": "humain",
-    "avatar": "http://i.imgur.com/5Hgp7yc.jpg",
-    "description": "Description à venir."
-  },
-  {
-    "name": "Iris Khan Delsatre",
-    "groupe": "humain",
-    "avatar": "http://i.imgur.com/O3tf18A.jpg",
-    "description": "Description à venir."
-  }
 ];

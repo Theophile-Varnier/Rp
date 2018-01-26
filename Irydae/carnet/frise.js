@@ -14,19 +14,12 @@ $(function () {
     width = 650,
     height = 650;
 
-  var hashedData = new Map();
-
   var hashedRps = [];
 
   // Parse the date / time
   var parseDate = d3.timeParse("%d/%m/%Y");
 
   data.forEach(function (d, i) {
-    if (!hashedData.get(d.debut)) {
-      hashedData.set(d.debut, []);
-    }
-    hashedData.get(d.debut).push(d);
-
     d.debut = parseDate(d.debut);
     if (d.fin) {
       d.fin = parseDate(d.fin);
@@ -36,25 +29,6 @@ $(function () {
 
 
   var locale = d3.timeFormatLocale({
-<<<<<<< HEAD
-  "decimal": ".",
-  "thousands": ",",
-  "grouping": [3],
-  "currency": ["$", ""],
-  "dateTime": "%a %b %e %X %Y",
-  "date": "%m/%d/%Y",
-  "time": "%H:%M:%S",
-  "periods": ["AM", "PM"],
-  "days": ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
-  "shortDays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-  "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-  "shortMonths": ["Jan", "Fev", "Mar", "Avr", "Mai", "Jui", "Juil", "Aou", "Sep", "Oct", "Nov", "Dec"]
-});
-
-var dateFormat = locale.format("%b %Y");
-
-  $(".full-wrapper").append($("<img>", {"src": "https://i.imgur.com/sO0BzoA.png"}));
-=======
     "decimal": ".",
     "thousands": ",",
     "grouping": [3],
@@ -73,10 +47,8 @@ var dateFormat = locale.format("%b %Y");
 
   
   
-  var svg = $("<svg>").setAttr("width", width + "px").setAttr("height", height + "px");
-  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;" }).append($("<img>", { "src": "https://i.imgur.com/sO0BzoA.png" })).append(svg);
+  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;position:relative;" }).append($("<img>", { "src": "https://i.imgur.com/9gynI7l.png" }));
   $(".full-wrapper").append(content);
->>>>>>> 8cef4b07961dfe98c17f2669cfa8730d420ffda4
 
   // Scale the range of the data
   var xdates = d3.extent(data, function (d) { return d.debut; });
@@ -105,23 +77,22 @@ var dateFormat = locale.format("%b %Y");
     });
   }
 
-  for (var [key, value] of hashedData) {
+  for (var periode of data) {
     var annee = find(hashedRps, function (obj) {
-      return obj.start <= parseDate(key) && obj.end >= parseDate(key);
+      return obj.start <= periode.debut && (!periode.fin && obj.end >= periode.debut || obj.end >= periode.fin);
     });
-    annee.rps.push(value);
+    annee.rps.push(periode);
   };
 
-  for (var i = 0; i < hashedRps.length; ++i) {
-    var annee = hashedRps[i];
-<<<<<<< HEAD
-    var graph = $("<div>", {"class": "graph"});
-    var wrapper = $("<div>", {"class": "graph-wrapper"});//.append(graph);
-=======
+  //for (var i = 0; i < hashedRps.length; ++i) {
+    
+    //var annee = hashedRps[i];
     var graph = $("<div>", { "class": "graph", "style": "width:" + width + "px;height:" + height + "px" });
     var wrapper = $("<div>", { "class": "graph-wrapper" }).append(graph);
->>>>>>> 8cef4b07961dfe98c17f2669cfa8730d420ffda4
-    var inputAttr;
+    var svg = d3.select(graph[0]).append("svg")
+    .attr("width", "650")
+    .attr("height", "650");
+    /*var inputAttr;
     if (i == hashedRps.length - 1) {
       inputAttr = {
         "type": "radio",
@@ -135,34 +106,11 @@ var dateFormat = locale.format("%b %Y");
         "name": "trimestre",
         "id": annee.label
       }
-    }
-<<<<<<< HEAD
-    $(".full-wrapper").append($("<input>", inputAttr)).append(
-      $("<label>", {"for": annee.label})
-      .append($("<span>", {"class": "tri-head"}).text(annee.label))
-      )
-      .append(wrapper);
-
-  for (var periode of annee.rps){
-    var init = true;
-    for(var e of periode){
-      var left = e.position.y-(circleWidth/2);
-      var tooltipLeft = -10;
-      if(left > 350){
-        tooltipLeft = -300;
-      } else if(width - left < 350){
-        tooltipLeft = -175;
-      }
-	  var currentHeight = e.position.y + ((paddingRp + circleWidth) / 2);
-        var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;bottom:" + currentHeight + "px;" });
-        var titlePanel = $("<div>", {"class": "panel-title bottom-border"});
-        var tooltip = $("<div>", {"class" : "tooltip", "style" : "left:" + tooltipLeft + "px"});
-        var tooltipTitle = $("<span>", {"class": "lieu bottom-border"}).text(e.lieu);
-=======
-    content.append($("<input>", inputAttr)).append(
+    }*/
+    content/*.append($("<input>", inputAttr)).append(
       $("<label>", { "for": annee.label })
         .append($("<span>", { "class": "tri-head" }).text(annee.label))
-    )
+    )*/
       .append(wrapper);
 
     var init = true;
@@ -170,20 +118,21 @@ var dateFormat = locale.format("%b %Y");
       x: 0,
       y: 0
     };
-    for (var periode of annee.rps) {
-      for (var e of periode) {
-        var left = e.position.y - (circleWidth / 2);
+    for (var e of data) {
+        var left = e.position.x - (circleWidth / 2);
         var tooltipLeft = -10;
-        if (left > 350) {
-          tooltipLeft = -300;
-        } else if (width - left < 350) {
-          tooltipLeft = -175;
+        if (left > 400) {
+          tooltipLeft = -210;
         }
-        var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;bottom:" + e.position.y + "px;" });
+        var top = 20;
+        if(e.position.y + (circleWidth /2) > 300){
+          top = -(190 + circleWidth/2);
+        }
+        var tooltipTop = 0;
+        var rpDiv = $("<div>", { "class": "rp progress", "style": "left:" + e.position.x + "px;top:" + e.position.y + "px;" });
         var titlePanel = $("<div>", { "class": "panel-title bottom-border" });
-        var tooltip = $("<div>", { "class": "tooltip", "style": "left:" + tooltipLeft + "px" });
+        var tooltip = $("<div>", { "class": "tooltip", "style": "left:" + tooltipLeft + "px;top:" + top + "px;" });
         var tooltipTitle = $("<span>", { "class": "lieu bottom-border" }).text(e.lieu);
->>>>>>> 8cef4b07961dfe98c17f2669cfa8730d420ffda4
         var tooltipDate = $("<i>").text(dateFormat(e.debut) + (e.fin ? " - " + dateFormat(e.fin) : ""));
         var contentPanel = $("<div>", { "class": "panel-body-wrapper" });
         for (var rp of e.rps) {
@@ -202,22 +151,20 @@ var dateFormat = locale.format("%b %Y");
         tooltip.append(titlePanel);
         tooltip.append(contentPanel);
         rpDiv.append(tooltip);
-<<<<<<< HEAD
-        wrapper.append(rpDiv);
-    }
-  }
-=======
         graph.append(rpDiv);
-      }
->>>>>>> 8cef4b07961dfe98c17f2669cfa8730d420ffda4
 
       if (!init) {
-        svg.append($("<line>", { "x1": lastPos.x, "y1": lastPos.y, "x2": e.position.x, "y2": e.position.y, "style": "stroke:rgb(0, 0, 0); stroke-width:2"}));
+        svg.append("line")
+        .attr("x1", lastPos.x + circleWidth/2 + 2)
+        .attr("y1", lastPos.y + circleWidth/2 + 2)
+        .attr("x2", e.position.x + circleWidth/2 + 2)
+        .attr("y2", e.position.y + circleWidth/2 + 2)
+        .attr("style", "stroke:rgb(0, 0, 0); stroke-width:2");
       }
       init = false;
       lastPos.x = e.position.x;
       lastPos.y = e.position.y;
     }
-  }
+  //}
 
 });
