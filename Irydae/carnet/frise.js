@@ -129,7 +129,7 @@ $(function () {
           top = -(190 + circleWidth/2);
         }
         var tooltipTop = 0;
-        var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;top:" + e.position.y + "px;" });
+        var rpDiv = $("<div>", { "class": "rp progress", "style": "left:" + e.position.x + "px;top:" + e.position.y + "px;" });
         var titlePanel = $("<div>", { "class": "panel-title bottom-border" });
         var tooltip = $("<div>", { "class": "tooltip", "style": "left:" + tooltipLeft + "px;top:" + top + "px;" });
         var tooltipTitle = $("<span>", { "class": "lieu bottom-border" }).text(e.lieu);

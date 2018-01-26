@@ -14,9 +14,8 @@ var data = [
             "nom": "Mark von Heïnster",
             "groupe": "daenar"
           }],
-          "url": "http://irydae.forumactif.org/t1282-inserer-titre-inspire-ici",
-          "titre": "Insérer titre inspiré ici",
-        "status": "progress",
+        "url": "http://irydae.forumactif.org/t1282-inserer-titre-inspire-ici",
+        "titre": "Insérer titre inspiré ici",
       },
       {
         "partenaires": [
@@ -24,9 +23,8 @@ var data = [
             "nom": "Lycinia Aurès",
             "groupe": "mytran"
           }],
-          "url": "http://irydae.forumactif.org/t1299-quand-l-eau-rencontre-la-terre-et-le-feu",
-          "titre": "Quand l'eau rencontre la terre et le feu",
-        "status": "progress",
+        "url": "http://irydae.forumactif.org/t1299-quand-l-eau-rencontre-la-terre-et-le-feu",
+        "titre": "Quand l'eau rencontre la terre et le feu",
       }]
   },
   {
@@ -50,7 +48,6 @@ var data = [
           }],
         "url": "http://irydae.forumactif.org/t1300-tant-de-mauvaise-foi",
         "titre": "Tant de mauvaise foi.",
-        "status": "progress",
       },
       {
         "partenaires": [
@@ -60,7 +57,6 @@ var data = [
           }],
         "url": "http://irydae.forumactif.org/t1281-voyage-en-terre-inconnue",
         "titre": "Voyage en terre inconnue",
-        "status": "progress",
       }]
   },
   {
@@ -78,9 +74,8 @@ var data = [
             "nom": "Ginger Holmes",
             "groupe": "daenar"
           }],
-          "url": "http://irydae.forumactif.org/t1290-quels-sont-tes-secrets",
-          "titre": "Quels sont tes secrets ?",
-        "status": "progress",
+        "url": "http://irydae.forumactif.org/t1290-quels-sont-tes-secrets",
+        "titre": "Quels sont tes secrets ?",
       }]
   },
   {
@@ -97,9 +92,8 @@ var data = [
             "nom": "Yssaé",
             "groupe": "daenar"
           }],
-          "url": "http://irydae.forumactif.org/t1333-sans-conteste-la-pire-association-de-malfaiteurs-possible",
-          "titre": "Sans conteste la pire association de malfaiteurs possible",
-        "status": "progress",
+        "url": "http://irydae.forumactif.org/t1333-sans-conteste-la-pire-association-de-malfaiteurs-possible",
+        "titre": "Sans conteste la pire association de malfaiteurs possible",
       }]
   },
 ];
