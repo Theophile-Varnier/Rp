@@ -4,7 +4,7 @@ var data = [
     "lieu": "Zolios",
     "position": {
       "x": 85,
-      "y": 310
+      "y": 335
     },
     "debut": "01/11/932",
     "rps": [
@@ -33,7 +33,7 @@ var data = [
     "lieu": "Tyorum",
     "position": {
       "x": 550,
-      "y": 310
+      "y": 335
     },
     "debut": "02/01/933",
     "fin": "01/02/933",
@@ -67,7 +67,7 @@ var data = [
     "lieu": "Alexandria",
     "position": {
       "x": 560,
-      "y": 240
+      "y": 265
     },
     "debut": "02/02/933",
     "fin": "01/03/933",
@@ -87,7 +87,7 @@ var data = [
     "lieu": "Marnaka",
     "position": {
       "x": 290,
-      "y": 75
+      "y": 100
     },
     "debut": "02/03/933",
     "rps": [

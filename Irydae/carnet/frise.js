@@ -47,7 +47,7 @@ $(function () {
 
   
   
-  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;" }).append($("<img>", { "src": "https://i.imgur.com/9gynI7l.png" }));
+  var content = $("<div>", { "class": "content-wrapper", "style": "width:" + width + "px;height:" + height + "px;position:relative;" }).append($("<img>", { "src": "https://i.imgur.com/9gynI7l.png" }));
   $(".full-wrapper").append(content);
 
   // Scale the range of the data
@@ -126,7 +126,7 @@ $(function () {
         }
         var top = 20;
         if(e.position.y + (circleWidth /2) > 300){
-          top = -(200 + circleWidth/2);
+          top = -(190 + circleWidth/2);
         }
         var tooltipTop = 0;
         var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;top:" + e.position.y + "px;" });
