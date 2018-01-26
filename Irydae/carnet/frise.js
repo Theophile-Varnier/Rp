@@ -119,16 +119,19 @@ $(function () {
       y: 0
     };
     for (var e of data) {
-        var left = e.position.y - (circleWidth / 2);
+        var left = e.position.x - (circleWidth / 2);
         var tooltipLeft = -10;
-        if (left > 350) {
-          tooltipLeft = -300;
-        } else if (width - left < 350) {
-          tooltipLeft = -175;
+        if (left > 400) {
+          tooltipLeft = -210;
         }
+        var top = 20;
+        if(e.position.y + (circleWidth /2) > 300){
+          top = -(200 + circleWidth/2);
+        }
+        var tooltipTop = 0;
         var rpDiv = $("<div>", { "class": "rp " + (e.status == "closed" ? "finished" : "progress"), "style": "left:" + e.position.x + "px;top:" + e.position.y + "px;" });
         var titlePanel = $("<div>", { "class": "panel-title bottom-border" });
-        var tooltip = $("<div>", { "class": "tooltip", "style": "left:" + tooltipLeft + "px" });
+        var tooltip = $("<div>", { "class": "tooltip", "style": "left:" + tooltipLeft + "px;top:" + top + "px;" });
         var tooltipTitle = $("<span>", { "class": "lieu bottom-border" }).text(e.lieu);
         var tooltipDate = $("<i>").text(dateFormat(e.debut) + (e.fin ? " - " + dateFormat(e.fin) : ""));
         var contentPanel = $("<div>", { "class": "panel-body-wrapper" });
