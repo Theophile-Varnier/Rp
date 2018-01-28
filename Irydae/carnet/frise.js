@@ -120,9 +120,9 @@ $(function () {
     };
     for (var e of data) {
         var left = e.position.x - (circleWidth / 2);
-        var tooltipLeft = -10;
+        var tooltipLeft = 0;
         if (left > 400) {
-          tooltipLeft = -210;
+          tooltipLeft = -200;
         }
         var top = 20;
         if(e.position.y + (circleWidth /2) > 300){

@@ -113,8 +113,9 @@
     transition: transform 0.25s ease;
     transform-origin: 50% 0;
     top:20px;
-    left:8px; 
+    left:8px;
     position: absolute;
+    overflow-y: hidden;
   }
 
   .tooltip .titreun{
@@ -153,6 +154,14 @@
 
   .peregrin{
     color: #7c5193;
+  }
+
+  .regisseur{
+    color: #8f3131;
+  }
+
+  .architecte{
+    color: #fff;
   }
 
   .rp:hover .tooltip{
