@@ -1,0 +1,77 @@
+<style type="text/css">
+	body {
+	font-family: "Lucida handwriting";
+	}
+	.board {
+	background-image: url("91G8asH3H7L._AC_SY355_.jpg");
+	 background-size: 100% 100%;
+	background-repeat: no-repeat;
+	min-height: 750px;
+	}
+	.polaroid {
+	cursor: pointer;
+	top: 75px;
+	transform: rotate(var(--rot));
+	position: absolute;
+    text-decoration: none;
+	text-align: center;
+    color: #333;
+    padding: 10px 10px 20px 10px;
+    width: 150px;
+    border: 1px solid #BFBFBF;
+    background-color: white;
+    z-index: 2;
+    font-size: 0.7em;
+    -webkit-box-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+    -moz-box-shadow: 2px 2px 4px rgba(0,0, 0, 0.3);
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+    -webkit-transition: all 0.5s ease-in;
+}
+
+.polaroid:before{
+content: "";
+background-image: url(pin.png);
+background-repeat:no-repeat;
+background-size: 50px;
+width: 50px;
+height: 50px;
+position: absolute;
+top:-10px;
+left:50%;
+transform: translate(-50%, 0);
+}
+
+.polaroid:hover {
+z-index: 100;
+box-shadow: 15px 15px 20px rgb(0 0 0 / 40%);
+transform: rotate(0deg) scale(1.05);
+}
+
+.polaroid img {
+width: 100%;
+}
+
+.polaroid div {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+margin-top: 10px;
+}
+</style>
+
+<div class="board">
+	<div class="polaroid" style="left:100px; --rot: -8deg;">
+	<img src="question-mark.png">
+	<div>
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+	</div>
+	</div>
+	<div class="polaroid" style="left:500px; --rot: 8deg; top: 100px;">
+	<img src="question-mark.png">
+	<div>
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+	</div>
+	</div>
+</div>
