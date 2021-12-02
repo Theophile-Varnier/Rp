@@ -1,10 +1,16 @@
 <link href="http://fonts.cdnfonts.com/css/lucida-handwriting-new" rel="stylesheet">
 <style type="text/css">
-  @import url('http://fonts.cdnfonts.com/css/lucida-handwriting-new');
+	@import url('http://fonts.cdnfonts.com/css/lucida-handwriting-new');
+	@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+	body {
+		margin: 0;
+	}
 	.board * {
 		box-sizing: border-box;
 	}
 	.board {
+		position: relative;
 		font-family: "Lucida Handwriting New";
 		background-image: url("91G8asH3H7L._AC_SY355_.jpg");
 		background-size: 100% 100%;
@@ -125,7 +131,7 @@
 		border-bottom: solid 1px rgba(255,210,0,0.1);
 		border-right: solid 1px rgba(255,210,0,0.1);
 	}
-	.rel:before{
+	.pin:before{
 		z-index: 10;
 		content: "";
 		background-image: url(pin.png);
@@ -137,6 +143,12 @@
 		top:-10px;
 		left:60%;
 		transform: translate(-50%, 0);
+	}
+	.pin.green:before {
+			filter: hue-rotate(80deg);
+	}
+	.pin.blue:before {
+		filter: hue-rotate(190deg);
 	}
 	.rel:hover {
 		z-index: 100;
@@ -168,64 +180,197 @@
 		text-overflow: ellipsis;
 		margin-top: 10px;
 	}
+
+	/* TODO */
+	.page-wrapper {
+		transform: rotate(15deg);
+		position: absolute;
+		height: 40%;
+		width: 15%;
+		background: rgba(255,255,255,1);
+		right: 0;
+		top: 10%;
+		box-shadow: 4px 4px 8px rgb(0 0 0 / 30%);
+		-webkit-transition: all 0.5s ease-in;
+	}
+
+	.page-wrapper:before, .page-wrapper:after  {
+		background: white;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateZ(2.5deg);
+  -o-transform: rotate(2.5deg);
+  transform: rotateZ(2.5deg);
+  z-index: -1;
+	box-shadow: 4px 4px 8px rgb(0 0 0 / 30%);
+}
+
+.page-wrapper:hover {
+	z-index: 100;
+	transform: rotate(0deg) scale(1.05);
+	box-shadow: 15px 15px 20px rgb(0 0 0 / 40%);
+}
+
+.page {
+	overflow: hidden;
+}
+
+.page-wrapper:after  {
+  -webkit-transform: rotateZ(-2.5deg);
+  -o-transform: rotate(-2.5deg);
+  transform: rotateZ(-2.5deg);
+}
+
+	.page::before {
+		z-index: 2;
+		content: '';
+		position: absolute;
+		left: 45px;
+		height: 100%;
+		width: 2px;
+		background: rgba(255,0,0,0.4);
+	}
+	.lines {
+		position: relative;
+		margin-top: 10%;
+		height: 90%;
+		width: 100%;
+		background-image: repeating-linear-gradient(white 0px, white 17px, steelblue 18px);
+	}
+	.page-text {
+		position: absolute;
+		top: 20px;
+		left: 55px;
+		bottom: 10px;
+		right: 10px;
+		line-height: 18px;
+		font-family: 'Indie Flower';
+		overflow: hidden;
+		outline: none;
+	}
+	.holes {
+		position: absolute;
+		left: 10px;
+		height: 25px;
+		width: 25px;
+		background-image: url("91G8asH3H7L._AC_SY355_.jpg");
+		background-position: center;
+		border-radius: 50%;
+		box-shadow: inset 0px 0px 2px 0px #888;
+	}
+	.hole-top {
+		top: 10%;
+	}
+	.hole-middle {
+		top: 50%;
+		background-position: 25% 25%;
+	}
+	.hole-bottom {
+		bottom: 10%;
+		background-position: 75% 75%;
+	}
+
+	/* ROPE */
+	.rope {
+		z-index: 99;
+		pointer-events: none;
+		position: absolute;
+		left:5%;
+		top:50%;
+		max-height: 20%;
+		width: 90%;
+		filter: hue-rotate(300deg) brightness(0.8) drop-shadow(2px 6px 8px black);
+	}
+
+	.rope img {
+		width: 100%;
+		height: 100%;
+	}
+
 </style>
 <div class="board">
-  <div class="rel" style="left:100px; --rot: -8deg;">
-    <div class="top-left paper">
-      <div class="polaroid">
-        <img src="question-mark.png">
-        <div>
-          Peut-être toi... ?
-        </div>
-      </div>
-    </div>
-    <div class="top-right">
-      <div class="paper">
-        Nom Prénom
-      </div>
-    </div>
-    <div class="bottom-left">
-      <div class="paper">
-        <div class="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
-        </div>
-      </div>
-    </div>
-    <div class="bottom-right">
-      <div class="paper">
-        <div class="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
-        </div>
-      </div>
-    </div>
-  </div>
-	<div class="rel" style="left:50%; --rot: 8deg;top:100px;">
-    <div class="top-left paper">
-      <div class="polaroid">
-        <img src="question-mark.png">
-        <div>
-          Peut-être toi... ?
-        </div>
-      </div>
-    </div>
-    <div class="top-right">
-      <div class="paper">
-        Nom Prénom
-      </div>
-    </div>
-    <div class="bottom-left">
-      <div class="paper">
-        <div class="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
-        </div>
-      </div>
-    </div>
-    <div class="bottom-right">
-      <div class="paper">
-        <div class="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="rope"><img src="rope2.png"/></div>
+	<div class="rel pin" style="left:100px; --rot: -8deg;">
+		<div class="top-left paper">
+			<div class="polaroid">
+				<img src="question-mark.png">
+				<div>
+					Peut-être toi... ?
+				</div>
+			</div>
+		</div>
+		<div class="top-right">
+			<div class="paper">
+				Nom Prénom
+			</div>
+		</div>
+		<div class="bottom-left">
+			<div class="paper">
+				<div class="text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
+				</div>
+			</div>
+		</div>
+		<div class="bottom-right">
+			<div class="paper">
+				<div class="text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rel pin green" style="left:50%; --rot: 8deg;top:100px;">
+		<div class="top-left paper">
+			<div class="polaroid">
+				<img src="question-mark.png">
+				<div>
+					Peut-être toi... ?
+				</div>
+			</div>
+		</div>
+		<div class="top-right">
+			<div class="paper">
+				Nom Prénom
+			</div>
+		</div>
+		<div class="bottom-left">
+			<div class="paper">
+				<div class="text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
+				</div>
+			</div>
+		</div>
+		<div class="bottom-right">
+			<div class="paper">
+				<div class="text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit lorem quis massa egestas finibus. Vivamus porttitor risus ut euismod commodo. Fusce aliquam efficitur iaculis. Ut semper purus sed felis ultricies, vitae auctor ante gravida. Nulla varius dapibus tellus ac tristique. Pellentesque dapibus nibh id lorem aliquet, sit amet gravida erat vehicula. Pellentesque rhoncus eget nisl a pretium. Suspendisse sed commodo urna, accumsan aliquam nunc. Ut lacinia vestibulum malesuada.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-wrapper">
+		<div class="pin blue"></div>
+	<div class="page">
+		<div class="lines">
+			<div class="page-text">
+				<div style="text-align:center;">TO DO LIST !!</div><br/>
+				<ul style="padding-left:20px;">
+					<li>Confident</li>
+					<li>Ennemi - rival</li>
+					<li>Romance</li>
+					<li>Partenaire(s) de bêtises</li>
+					<li>Jugeur</li>
+					<li>Victime</li>
+
+				</ul>
+			</div>
+			<div class="holes hole-top"></div>
+			<div class="holes hole-middle"></div>
+			<div class="holes hole-bottom"></div>
+		</div>
+		</div>
+	</div>
