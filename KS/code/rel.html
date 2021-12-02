@@ -286,6 +286,27 @@
 		filter: hue-rotate(300deg) brightness(0.8) drop-shadow(2px 6px 8px black);
 	}
 
+	.rope.pin:before {
+		left:-10px;
+		top: 2px;
+		transform: scaleX(-1);
+	}
+
+	.rope.pin:after{
+		z-index: 10;
+		content: "";
+		background-image: url(pin.png);
+		background-repeat:no-repeat;
+		background-size: 50px;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top:0;
+		right: 0;
+		transform: translateX(50%);
+			filter: hue-rotate(190deg);
+	}
+
 	.rope img {
 		width: 100%;
 		height: 100%;
@@ -293,7 +314,7 @@
 
 </style>
 <div class="board">
-	<div class="rope"><img src="rope2.png"/></div>
+	<div class="rope pin blue"><img src="rope2.png"/></div>
 	<div class="rel pin" style="left:100px; --rot: -8deg;">
 		<div class="top-left paper">
 			<div class="polaroid">
